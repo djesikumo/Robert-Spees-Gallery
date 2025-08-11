@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galería de Arte</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#4f46e5", secondary: "#8b5cf6" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #fafafa;
+      }
+      .gallery-title {
+        font-family: 'Playfair Display', serif;
+      }
+      .modal {
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      .modal.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .zoom-container {
+        transition: transform 0.3s ease;
+      }
+      .gallery-item img {
+        transition: transform 0.3s ease;
+      }
+      .gallery-item img:hover {
+        transform: scale(1.05);
+      }
+      input[type="range"] {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 4px;
+        background: #e5e7eb;
+        border-radius: 5px;
+        outline: none;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 16px;
+        height: 16px;
+        background: #4f46e5;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      input[type="range"]::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        background: #4f46e5;
+        border-radius: 50%;
+        cursor: pointer;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="bg-white shadow-sm">
+      <div
+        class="container mx-auto px-4 py-6 flex justify-between items-center"
+      >
+        <h1 class="text-3xl font-['Pacifico'] text-primary">logo</h1>
+        <nav>
+          <ul class="flex space-x-8">
+            <li>
+              <a
+                href="#"
+                class="text-gray-800 hover:text-primary transition-colors"
+                >Sewn Pieces</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-800 hover:text-primary transition-colors"
+                >Videos/Films</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-800 hover:text-primary transition-colors"
+                >CV</a
+              >
+            </li>
+    
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+      <section class="mb-12 text-center">
+        <h2 class="gallery-title text-4xl font-bold mb-4">Nuestra Colección</h2>
+        <p class="text-gray-600 max-w-3xl mx-auto">
+          Explora nuestra cuidada selección de obras de arte contemporáneo. Cada
+          pieza ha sido seleccionada por su valor artístico y significado
+          cultural. Haz clic en cualquier obra para ver más detalles.
+        </p>
+      </section>
+
+      <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Obra 1 -->
+        <div class="gallery-item cursor-pointer" data-index="0">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/16th_quilt_2020-webp.png" alt="16th Quilt, 2020" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">16th Quilt</h3>
+            <p class="text-gray-500">2020</p>
+          </div>
+        </div>
+      
+        <!-- Obra 2 -->
+        <div class="gallery-item   cursor-pointer" data-index="1">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/207_apartment_2_2021-webp.png" alt="207 Apartment 2, 2021" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">207 Apartment 2</h3>
+            <p class="text-gray-500">2021</p>
+          </div>
+        </div>
+      
+        <!-- Obra 3 -->
+        <div class="gallery-item  cursor-pointer" data-index="2">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/annmarie_quilt_2019-webp.png" alt="Annmarie Quilt, 2019" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">Annmarie Quilt</h3>
+            <p class="text-gray-500">2019</p>
+          </div>
+        </div>
+      
+        <!-- Obra 4 -->
+        <div class="gallery-item   cursor-pointer" data-index="3">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/belvedere_quilt_2020-webp.png" alt="Belvedere Quilt, 2020" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">Belvedere Quilt</h3>
+            <p class="text-gray-500">2020</p>
+          </div>
+        </div>
+      
+        <!-- Obra 5 -->
+        <div class="gallery-item   cursor-pointer" data-index="4">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/but_pis_quilt_2022-webp.png" alt="But Pis Quilt, 2022" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">But Pis Quilt</h3>
+            <p class="text-gray-500">2022</p>
+          </div>
+        </div>
+      
+        <!-- Obra 6 -->
+        <div class="gallery-item   cursor-pointer" data-index="5">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/calloway_county_quilt_2008_editedwebp.png" alt="Calloway County Quilt, 2008" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">Calloway County Quilt</h3>
+            <p class="text-gray-500">2008</p>
+          </div>
+        </div>
+      
+        <!-- Obra 7 -->
+        <div class="gallery-item   cursor-pointer" data-index="6">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/catastrophic_innocence2025-webp.png" alt="Catastrophic Innocence, 2025" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">Catastrophic Innocence</h3>
+            <p class="text-gray-500">2025</p>
+          </div>
+        </div>
+      
+        <!-- Obra 8 -->
+        <div class="gallery-item   cursor-pointer" data-index="7">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/daniel_cate_quilt2019-webp.png" alt="Daniel Cate Quilt, 2019" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">Daniel Cate Quilt</h3>
+            <p class="text-gray-500">2019</p>
+          </div>
+        </div>
+      
+        <!-- Obra 9 -->
+        <div class="gallery-item   cursor-pointer" data-index="8">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/frankie_macdonald_2021-webp.png" alt="Frankie Macdonald, 2021" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">Frankie Macdonald</h3>
+            <p class="text-gray-500">2021</p>
+          </div>
+        </div>
+      
+        <!-- Obra 10 -->
+        <div class="gallery-item   cursor-pointer" data-index="9">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/future_shock2024-webp.png" alt="Future Shock, 2024" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">Future Shock</h3>
+            <p class="text-gray-500">2024</p>
+          </div>
+        </div>
+      
+        <!-- Obra 11 -->
+        <div class="gallery-item   cursor-pointer" data-index="10">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/hampshire_county_quilt_2019 (1)-webp.png" alt="Hampshire County Quilt, 2019" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">Hampshire County Quilt</h3>
+            <p class="text-gray-500">2019</p>
+          </div>
+        </div>
+      
+        <!-- Obra 12 -->
+        <div class="gallery-item   cursor-pointer" data-index="11">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/hohenwald_quilt2024-webp.png" alt="Hohenwald Quilt, 2024" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">Hohenwald Quilt</h3>
+            <p class="text-gray-500">2024</p>
+          </div>
+        </div>
+      
+        <!-- Obra 13 -->
+        <div class="gallery-item   cursor-pointer" data-index="12">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/kentucky_bend2024-webp.png" alt="Kentucky Bend, 2024" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">Kentucky Bend</h3>
+            <p class="text-gray-500">2024</p>
+          </div>
+        </div>
+      
+        <!-- Obra 14 -->
+        <div class="gallery-item   cursor-pointer" data-index="13">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/livingston_county_quilt_2019-webp.png" alt="Livingston County Quilt, 2019" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">Livingston County Quilt</h3>
+            <p class="text-gray-500">2019</p>
+          </div>
+        </div>
+      
+        <!-- Obra 15 -->
+        <div class="gallery-item   cursor-pointer" data-index="14">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/melber_quilt_2021-webp.png" alt="Melber Quilt, 2021" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">Melber Quilt</h3>
+            <p class="text-gray-500">2021</p>
+          </div>
+        </div>
+      
+        <!-- Obra 16 -->
+        <div class="gallery-item   cursor-pointer" data-index="15">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/north_16th_street_revisited_2022-webp.png" alt="North 16th Street Revisited, 2022" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">North 16th Street Revisited</h3>
+            <p class="text-gray-500">2022</p>
+          </div>
+        </div>
+      
+        <!-- Obra 17 -->
+        <div class="gallery-item   cursor-pointer" data-index="16">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/ohio_county_quilt_2007_new-webp.png" alt="Ohio County Quilt, 2007" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">Ohio County Quilt</h3>
+            <p class="text-gray-500">2007</p>
+          </div>
+        </div>
+      
+        <!-- Obra 18 -->
+        <div class="gallery-item   cursor-pointer" data-index="17">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/portrait_of_andro_dadiani_2022-webp.png" alt="Portrait of Andro Dadiani, 2022" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">Portrait of Andro Dadiani</h3>
+            <p class="text-gray-500">2022</p>
+          </div>
+        </div>
+      
+        <!-- Obra 19 -->
+        <div class="gallery-item   cursor-pointer" data-index="18">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/pottertown_quilt_2021_new-webp.png" alt="Pottertown Quilt, 2021" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">Pottertown Quilt</h3>
+            <p class="text-gray-500">2021</p>
+          </div>
+        </div>
+      
+        <!-- Obra 20 -->
+        <div class="gallery-item   cursor-pointer" data-index="19">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/to_cooter_brown_2024-webp.png" alt="To Cooter Brown, 2024" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">To Cooter Brown</h3>
+            <p class="text-gray-500">2024</p>
+          </div>
+        </div>
+      
+        <!-- Obra 21 -->
+        <div class="gallery-item   cursor-pointer" data-index="20">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/to_florine_mckenney_2022-webp.png" alt="To Florine McKenney, 2022" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">To Florine McKenney</h3>
+            <p class="text-gray-500">2022</p>
+          </div>
+        </div>
+      
+        <!-- Obra 22 -->
+        <div class="gallery-item   cursor-pointer" data-index="21">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/tom_daley_2022-webp.png" alt="Tom Daley, 2022" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">Tom Daley</h3>
+            <p class="text-gray-500">2022</p>
+          </div>
+        </div>
+      
+        <!-- Obra 23 -->
+        <div class="gallery-item   cursor-pointer" data-index="22">
+          <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+            <img src="./Selected Works/Wickliffe Quilt (Almost to Cairo), 2023-webp.png" alt="Wickliffe Quilt (Almost to Cairo), 2023" class="w-full h-64 object-cover object-top" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium">Wickliffe Quilt (Almost to Cairo)</h3>
+            <p class="text-gray-500">2023</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal para visualización detallada -->
+    <div
+      class="modal fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90"
+    >
+      <div class="relative w-full h-full flex flex-col">
+        <!-- Botón de cierre -->
+        <button
+          class="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center text-white bg-black bg-opacity-50 rounded-full hover:bg-opacity-70 transition-all !rounded-button"
+          id="close-modal"
+        >
+          <i class="ri-close-line ri-lg"></i>
+        </button>
+
+        <!-- Navegación -->
+        <div class="absolute inset-y-0 left-4 flex items-center z-10">
+          <button
+            class="w-12 h-12 flex items-center justify-center text-white bg-black bg-opacity-50 rounded-full hover:bg-opacity-70 transition-all !rounded-button"
+            id="prev-button"
+          >
+            <i class="ri-arrow-left-line ri-lg"></i>
+          </button>
+        </div>
+        <div class="absolute inset-y-0 right-4 flex items-center z-10">
+          <button
+            class="w-12 h-12 flex items-center justify-center text-white bg-black bg-opacity-50 rounded-full hover:bg-opacity-70 transition-all !rounded-button"
+            id="next-button"
+          >
+            <i class="ri-arrow-right-line ri-lg"></i>
+          </button>
+        </div>
+
+        <!-- Contenedor principal -->
+        <div class="flex flex-col md:flex-row h-full">
+          <!-- Imagen -->
+          <div
+            class="flex-1 flex items-center justify-center p-4 md:p-8 overflow-hidden"
+          >
+            <div
+              class="zoom-container max-w-full max-h-full flex items-center justify-center"
+            >
+              <img
+                src=""
+                alt=""
+                class="modal-image max-w-full max-h-[70vh] object-contain"
+              />
+            </div>
+          </div>
+
+          <!-- Panel de información -->
+          <div class="w-full md:w-96 bg-white p-6 overflow-y-auto">
+            <h2 class="modal-title text-2xl font-bold mb-2"></h2>
+            <p class="modal-year text-gray-500 mb-4"></p>
+
+            <div class="mb-6">
+              <h3 class="text-lg font-medium mb-2">Details</h3>
+              <p class="modal-description text-gray-700"></p>
+            </div>
+
+            <div class="mb-6">
+              <h3 class="text-lg font-medium mb-2">About</h3>
+              <div class="space-y-2">
+                <p>
+                  <span class="font-medium">Technique:</span>
+                  <span class="modal-technique"></span>
+                </p>
+                <p>
+                  <span class="font-medium">Size:</span>
+                  <span class="modal-dimensions"></span>
+                </p>
+                <p>
+                  <span class="font-medium"></span>
+                  <span class="modal-artist"></span>
+                </p>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <h3 class="text-lg font-medium mb-2">Zoom</h3>
+              <input
+                type="range"
+                min="1"
+                max="3"
+                step="0.1"
+                value="1"
+                class="zoom-control w-full"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">Galería de Arte</h3>
+            <p class="text-gray-400">
+              Exhibiendo lo mejor del arte contemporáneo desde 2010. Nuestra
+              misión es conectar artistas con amantes del arte y coleccionistas.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Contacto</h3>
+            <p class="text-gray-400 mb-2">Calle Artística 123, Madrid</p>
+            <p class="text-gray-400 mb-2">info@galeriadearte.es</p>
+            <p class="text-gray-400">+34 912 345 678</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Síguenos</h3>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+              >
+                <i class="ri-instagram-line"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+              >
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+              >
+                <i class="ri-twitter-x-line"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2025 Galería de Arte. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Datos de las obras
+            const artworks = [
+        {
+            title: "16th Quilt",
+            year: "2020",
+            image: "./Selected Works/16th_quilt_2020-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "207 Apartment 2",
+            year: "2021",
+            image: "./Selected Works/207_apartment_2_2021-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "Annmarie Quilt",
+            year: "2019",
+            image: "./Selected Works/annmarie_quilt_2019-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "Belvedere Quilt",
+            year: "2020",
+            image: "./Selected Works/belvedere_quilt_2020-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "But Pis Quilt",
+            year: "2022",
+            image: "./Selected Works/but_pis_quilt_2022-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "Calloway County Quilt",
+            year: "2008",
+            image: "./Selected Works/calloway_county_quilt_2008_editedwebp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "Catastrophic Innocence",
+            year: "2025",
+            image: "./Selected Works/catastrophic_innocence2025-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "Daniel Cate Quilt",
+            year: "2019",
+            image: "./Selected Works/daniel_cate_quilt2019-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "Frankie Macdonald",
+            year: "2021",
+            image: "./Selected Works/frankie_macdonald_2021-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "Future Shock",
+            year: "2024",
+            image: "./Selected Works/future_shock2024-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "Hampshire County Quilt",
+            year: "2019",
+            image: "./Selected Works/hampshire_county_quilt_2019 (1)-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "Hohenwald Quilt",
+            year: "2024",
+            image: "./Selected Works/hohenwald_quilt2024-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "Kentucky Bend",
+            year: "2024",
+            image: "./Selected Works/kentucky_bend2024-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "Livingston County Quilt",
+            year: "2019",
+            image: "./Selected Works/livingston_county_quilt_2019-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "Melber Quilt",
+            year: "2021",
+            image: "./Selected Works/melber_quilt_2021-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "North 16th Street Revisited",
+            year: "2022",
+            image: "./Selected Works/north_16th_street_revisited_2022-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "Ohio County Quilt",
+            year: "2007",
+            image: "./Selected Works/ohio_county_quilt_2007_new-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "Portrait of Andro Dadiani",
+            year: "2022",
+            image: "./Selected Works/portrait_of_andro_dadiani_2022-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "Pottertown Quilt",
+            year: "2021",
+            image: "./Selected Works/pottertown_quilt_2021_new-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "To Cooter Brown",
+            year: "2024",
+            image: "./Selected Works/to_cooter_brown_2024-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "To Florine McKenney",
+            year: "2022",
+            image: "./Selected Works/to_florine_mckenney_2022-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "Tom Daley",
+            year: "2022",
+            image: "./Selected Works/tom_daley_2022-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        },
+        {
+            title: "Wickliffe Quilt (Almost to Cairo)",
+            year: "2023",
+            image: "./Selected Works/Wickliffe Quilt (Almost to Cairo), 2023-webp.png",
+            description: "No description available.",
+            technique: "Mixed media",
+            dimensions: "Not specified"
+        }
+        ];
+
+      // Variables para el modal
+      let currentIndex = 0;
+      const modal = document.querySelector(".modal");
+      const modalImage = document.querySelector(".modal-image");
+      const modalTitle = document.querySelector(".modal-title");
+      const modalYear = document.querySelector(".modal-year");
+      const modalDescription = document.querySelector(".modal-description");
+      const modalTechnique = document.querySelector(".modal-technique");
+      const modalDimensions = document.querySelector(".modal-dimensions");
+      const modalArtist = document.querySelector(".modal-artist");
+      const zoomControl = document.querySelector(".zoom-control");
+      const zoomContainer = document.querySelector(".zoom-container");
+      const prevButton = document.getElementById("prev-button");
+      const nextButton = document.getElementById("next-button");
+      const closeButton = document.getElementById("close-modal");
+      // Añadir eventos a las obras
+      document.querySelectorAll(".gallery-item").forEach((item) => {
+        item.addEventListener("click", () => {
+          currentIndex = parseInt(item.dataset.index);
+          openModal(currentIndex);
+        });
+      });
+      // Función para abrir el modal
+      function openModal(index) {
+        const artwork = artworks[index];
+
+        modalImage.src = artwork.image;
+        modalImage.alt = artwork.title;
+        modalTitle.textContent = artwork.title;
+        modalYear.textContent = artwork.year;
+        modalDescription.textContent = artwork.description;
+        modalTechnique.textContent = artwork.technique;
+        modalDimensions.textContent = artwork.dimensions;
+        modalArtist.textContent = artwork.artist;
+
+        zoomControl.value = 1;
+        zoomContainer.style.transform = "scale(1)";
+
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      // Función para cerrar el modal
+      function closeModal() {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      // Evento para cerrar el modal
+      closeButton.addEventListener("click", closeModal);
+
+      // Navegación entre obras
+      prevButton.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
+        openModal(currentIndex);
+      });
+      nextButton.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % artworks.length;
+        openModal(currentIndex);
+      });
+
+      // Control de zoom
+      zoomControl.addEventListener("input", (e) => {
+        const zoomLevel = e.target.value;
+        zoomContainer.style.transform = `scale(${zoomLevel})`;
+      });
+
+      // Cerrar modal con tecla ESC
+      document.addEventListener("keydown", (e) => {
+        if (modal.classList.contains("active")) {
+          if (e.key === "Escape") {
+            closeModal();
+          } else if (e.key === "ArrowLeft") {
+            currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
+            openModal(currentIndex);
+          } else if (e.key === "ArrowRight") {
+            currentIndex = (currentIndex + 1) % artworks.length;
+            openModal(currentIndex);
+          }
+        }
+      });
+
+      // Cerrar modal al hacer clic fuera de la imagen
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+    </script>
+  </body>
+</html>
