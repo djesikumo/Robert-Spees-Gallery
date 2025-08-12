@@ -3,4 +3,7 @@ export interface GaleryItem {
   imageUrl: string;
   name: string;
   year: string;
+  description: string;
+  technique: string;
+  dimensions: string;
 }

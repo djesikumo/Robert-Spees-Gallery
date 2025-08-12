@@ -1,13 +1,13 @@
 import { createContext, useContext } from "react";
-import type { NavigationContextType } from "../types/application";
+import type { ApplicationContextType } from "../types/application";
 
 // Hook personalizado de navegación
-export const NavigationContext = createContext<NavigationContextType | undefined>(undefined);
+export const ApplicationContext = createContext<ApplicationContextType | undefined>(undefined);
 
-export const useNav = (): NavigationContextType => {
-  const context = useContext(NavigationContext);
+export const useApp = (): ApplicationContextType => {
+  const context = useContext(ApplicationContext);
   if (context === undefined) {
-    throw new Error('useNav must be used within an NavigationProvider');
+    throw new Error('useApp must be used within an ApplicationProvider');
   }
   return context;
 }

@@ -1,21 +1,21 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { NavigationProvider } from "./utils/NavigationContext";
-import HomePage from "./pages/HomePage";
+import { ApplicationProvider } from "./utils/ApplicationContext";
 import Navbar from "./components/Navbar";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
     <>
-      <NavigationProvider>
+      <ApplicationProvider>
         <Router>
           <div className="flex flex-col">
             <Navbar />
             <Routes>
-              <Route path="/" element={<HomePage />} />
+              <Route path="/gallery" element={<HomePage />} />
             </Routes>
           </div>
         </Router>
-      </NavigationProvider>
+      </ApplicationProvider>
     </>
   )
 }
