@@ -1,0 +1,38 @@
+---
+deployment:
+  tasks:
+    # Rutas fijas para tu cuenta
+    - export DOCROOT=/home/fxexlrelpfnc/public_html
+    - export NVM_BIN=/home/fxexlrelpfnc/.nvm/versions/node/v22.18.0/bin
+    - export PATH=$NVM_BIN:$PATH
+    - export NODE_OPTIONS=--max-old-space-size=512
+
+    - echo "📦 Instalando dependencias…"
+    - cd "$DOCROOT"
+    - npm ci || npm i
+
+    - echo "🧱 Compilando Vite…"
+    - npm run build
+
+    - echo "🗂️ Preparando staging…"
+    - rm -rf "$DOCROOT/.deploy_tmp"
+    - mkdir -p "$DOCROOT/.deploy_tmp"
+    - /bin/rsync -a "$DOCROOT/dist/" "$DOCROOT/.deploy_tmp/"
+
+    # Fallback de SPA si no existe (React Router)
+    - if [ ! -f "$DOCROOT/.htaccess" ]; then printf 'RewriteEngine On\nRewriteCond %%{REQUEST_FILENAME} !-f\nRewriteCond %%{REQUEST_FILENAME} !-d\nRewriteRule . /index.html [L]\n' > "$DOCROOT/.htaccess"; fi
+
+    - echo "🧹 Limpiando docroot (preservando .git, .cpanel.yml y .htaccess)…"
+    - find "$DOCROOT" -mindepth 1 -maxdepth 1 ! -name '.git' ! -name '.gitignore' ! -name '.cpanel.yml' ! -name '.deploy_tmp' ! -name '.htaccess' -exec rm -rf {} +
+
+    - echo "🚀 Publicando build…"
+    - /bin/rsync -a "$DOCROOT/.deploy_tmp/" "$DOCROOT/"
+
+    - echo "🧽 Post-limpieza…"
+    - rm -rf "$DOCROOT/.deploy_tmp" "$DOCROOT/dist" "$DOCROOT/node_modules" \
+      "$DOCROOT/package.json" "$DOCROOT/package-lock.json" "$DOCROOT/src" \
+      "$DOCROOT/public" "$DOCROOT/raw" "$DOCROOT/tsconfig.app.json" \
+      "$DOCROOT/tsconfig.node.json" "$DOCROOT/tsconfig.json" \
+      "$DOCROOT/vite.config.ts" "$DOCROOT/README.md" "$DOCROOT/eslint.config.js"
+
+    - echo "✅ Deploy completado"
