@@ -11,7 +11,7 @@ export const ApplicationProvider: React.FC<NavigationProviderProps> = ({ childre
   const [currentRoute, setCurrentRoute] = useState<string>("/");
   const [selectedItem, setSelectedItem] = useState<GaleryItem | null>(null);
   const [isOpenItemDetailsDrawer, setIsOpenItemDetailsDrawer] = useState<boolean>(false);
-  const [imageZoom, setImageZoom] = useState<number>(1);
+  const [imageZoom, setImageZoom] = useState<number>(0.75);
   const [position, setPosition] = useState<Position>({ x: 0, y: 0 })
 
   const value: ApplicationContextType = {

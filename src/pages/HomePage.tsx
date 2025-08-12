@@ -5,7 +5,7 @@ import { data } from "../data"
 const HomePage = () => {
   return (
     <>
-      <main className="w-screen flex flex-col px-4 py-12 bg-gray-100">
+      <main className="w-full flex flex-col px-4 py-12 bg-gray-100">
         {/* Descripción */}
         <section className="mb-12 text-center">
           <h2 className="gallery-title text-4xl font-bold mb-4">Selected Pieces</h2>

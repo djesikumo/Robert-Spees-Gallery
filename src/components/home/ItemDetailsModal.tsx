@@ -63,7 +63,8 @@ const ItemDetailsModal = () => {
   const handleCloseModal = () => {
     setSelectedItem(null);
     setPosition({ x: 0, y: 0 });
-    setImageZoom(1);
+    setImageZoom(0.75);
+    setIsOpenItemDetailsDrawer(false);
   }
 
   // Cuando el zoom es x1 que la imagen se ponga nuevamente en el centro
@@ -97,7 +98,7 @@ const ItemDetailsModal = () => {
           </svg>
           <input
             type="range"
-            min={1}
+            min={0.75}
             max={2}
             step={0.01}
             value={imageZoom}
@@ -117,7 +118,7 @@ const ItemDetailsModal = () => {
           className="flex z-50 items-center justify-center h-12 w-12 rounded-full cursor-pointer transition-colors duration-300 ease hover:bg-gray-500/50"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-            className={`icon icon-tabler icons-tabler-outline icon-tabler-menu-deep transition-transform duration-300 ease ${isOpenItemDetailsDrawer ? "transform scale-y-[-1]" : ""}`}
+            className={`icon icon-tabler icons-tabler-outline icon-tabler-menu-deep transition-all duration-300 ease ${isOpenItemDetailsDrawer ? "transform scale-y-[-1] text-black" : ""}`}
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M4 6h16" /><path d="M7 12h13" />
@@ -150,6 +151,23 @@ const ItemDetailsModal = () => {
         </div>
 
         {/* Menú de los detalles de la imagen */}
+        <div className={`flex items-start h-full bg-gray-100 transition-all duration-300 ease ${isOpenItemDetailsDrawer ? "w-[600px] p-8" : "w-0 p-0"} `}>
+          {isOpenItemDetailsDrawer && (
+            <div className="flex flex-col w-full">
+              <h3 className="text-3xl text-black font-bold overflow-hidden">{selectedItem.name}</h3>
+              <p className="text-xl text-gray-500 mb-4">{selectedItem.year}</p>
+              <p className="text-xl text-black font-bold">Details</p>
+              <p className="text-xl text-gray-500 mb-4">{selectedItem.description}</p>
+              <p className="text-xl text-black font-bold">About</p>
+              <p className="text-xl text-black">
+                Technique: <span className="text-xl text-gray-500">{selectedItem.technique}</span>
+              </p>
+              <p className="text-xl text-black">
+                Size: <span className="text-xl text-gray-500">{selectedItem.dimensions}</span>
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )

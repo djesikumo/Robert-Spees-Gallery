@@ -11,7 +11,7 @@ const Navbar = () => {
   }, [location.pathname, currentRoute, setCurrentRoute]);
 
   return (
-    <div className="flex h-40 w-screen bg-black text-white">
+    <div className="flex h-40 w-full bg-black text-white">
       <div className="w-full flex items-center justify-between gap-4">
         <span className='w-full flex justify-center'>
           <Link to="/" className={`text-2xl transition-colors duration-300 ease-in-out ${currentRoute === "/" ? "text-indigo-500" : "hover:text-indigo-500"}`}>Sewn Pieces</Link>
