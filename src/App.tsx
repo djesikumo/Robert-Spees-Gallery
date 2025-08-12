@@ -11,7 +11,7 @@ function App() {
           <div className="flex flex-col">
             <Navbar />
             <Routes>
-              <Route path="/gallery" element={<HomePage />} />
+              <Route path="/" element={<HomePage />} />
             </Routes>
           </div>
         </Router>
