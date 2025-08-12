@@ -11,8 +11,6 @@ export interface ApplicationContextType {
   setCurrentRoute: (route: SetStateAction<string>) => void;
   selectedItem: GaleryItem | null;
   setSelectedItem: (item: SetStateAction<GaleryItem | null>) => void;
-  isOpenItemDetailsDrawer: boolean;
-  setIsOpenItemDetailsDrawer: (item: SetStateAction<boolean>) => void;
   imageZoom: number;
   setImageZoom: (zoom: SetStateAction<number>) => void;
   position: Position;
