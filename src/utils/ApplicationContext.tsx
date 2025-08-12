@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from "react";
 import { ApplicationContext } from "./hooks";
-import type { ApplicationContextType } from "../types/application";
+import type { ApplicationContextType, Position } from "../types/application";
 import type { GaleryItem } from "../types/galery";
 
 interface NavigationProviderProps {
@@ -8,12 +8,18 @@ interface NavigationProviderProps {
 }
 
 export const ApplicationProvider: React.FC<NavigationProviderProps> = ({ children }) => {
-  const [currentRoute, setCurrentRoute] = useState<string>("/gallery");
-  const [selectedItem, setSelectedItem] = useState<GaleryItem | null>(null)
+  const [currentRoute, setCurrentRoute] = useState<string>("/");
+  const [selectedItem, setSelectedItem] = useState<GaleryItem | null>(null);
+  const [isOpenItemDetailsDrawer, setIsOpenItemDetailsDrawer] = useState<boolean>(false);
+  const [imageZoom, setImageZoom] = useState<number>(1);
+  const [position, setPosition] = useState<Position>({ x: 0, y: 0 })
 
-  const value: ApplicationContextType = { 
+  const value: ApplicationContextType = {
     currentRoute, setCurrentRoute,
-    selectedItem, setSelectedItem
+    selectedItem, setSelectedItem,
+    isOpenItemDetailsDrawer, setIsOpenItemDetailsDrawer,
+    imageZoom, setImageZoom,
+    position, setPosition
   };
 
   return (
