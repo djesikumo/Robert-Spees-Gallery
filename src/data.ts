@@ -9,7 +9,7 @@ import url_catastrophic_innocence2025 from "./assets/Selected Works/catastrophic
 import url_daniel_cate_quilt2019 from "./assets/Selected Works/daniel_cate_quilt2019-webp.png"
 import url_frankie_macdonald_2021 from "./assets/Selected Works/frankie_macdonald_2021-webp.png"
 import url_future_shock2024 from "./assets/Selected Works/future_shock2024-webp.png"
-import url_hampshire_county_quilt_2019 from "./assets/Selected Works/hampshire_county_quilt_2019 (1)-webp.png"
+import url_hampshire_county_quilt_2019 from "./assets/Selected Works/hampshire_county_quilt_2019-webp.png"
 import url_hohenwald_quilt2024 from "./assets/Selected Works/hohenwald_quilt2024-webp.png"
 import url_kentucky_bend2024 from "./assets/Selected Works/kentucky_bend2024-webp.png"
 import url_livingston_county_quilt_2019 from "./assets/Selected Works/livingston_county_quilt_2019-webp.png"
@@ -21,7 +21,7 @@ import url_pottertown_quilt_2021_new from "./assets/Selected Works/pottertown_qu
 import url_to_cooter_brown_2024 from "./assets/Selected Works/to_cooter_brown_2024-webp.png"
 import url_to_florine_mckenney_2022 from "./assets/Selected Works/to_florine_mckenney_2022-webp.png"
 import url_tom_daley_2022 from "./assets/Selected Works/tom_daley_2022-webp.png"
-import url_Wickliffe_Quilt from "./assets/Selected Works/Wickliffe Quilt (Almost to Cairo), 2023-webp.png"
+import url_Wickliffe_Quilt from "./assets/Selected Works/Wickliffe Quilt Almost to Cairo 2023-webp.png"
 
 export const data: GaleryItem[] = [
   {

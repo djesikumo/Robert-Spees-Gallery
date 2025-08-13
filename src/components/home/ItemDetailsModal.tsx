@@ -94,7 +94,7 @@ const ItemDetailsModal = () => {
   if (!selectedItem) return null;
 
   return (
-    <div className="fixed w-screen h-screen bg-black/75 backdrop-blur-md">
+    <div className="fixed w-screen h-screen bg-black/75 backdrop-blur-md animate-backdrop">
       {/* Barra de opciones */}
       <div className="absolute flex w-full p-4 pr-10 items-center justify-between text-white">
         {/* Botón de cerrar el modal */}
@@ -176,7 +176,7 @@ const ItemDetailsModal = () => {
         {/* Imagen */}
         <div
           ref={containerRef}
-          className="w-full h-full overflow-hidden"
+          className="w-full h-full overflow-hidden animate-modal-image-enter"
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
@@ -189,7 +189,7 @@ const ItemDetailsModal = () => {
               backgroundImage: `url(${selectedItem.imageUrl})`,
               transform: `scale(${imageZoom}) translate(${position.x}px, ${position.y}px)`,
               cursor: imageZoom > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default',
-              transition: isDragging ? 'none' : 'transform 0.2s ease'
+              transition: isDragging ? 'none' : 'transform 0.3s ease'
             }}
           />
         </div>
