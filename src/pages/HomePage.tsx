@@ -10,9 +10,7 @@ const HomePage = () => {
         <section className="mb-12 text-center">
           <h2 className="gallery-title text-4xl font-bold mb-4">Selected Pieces</h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            Explora nuestra cuidada selección de obras de arte contemporáneo. Cada
-            pieza ha sido seleccionada por su valor artístico y significado
-            cultural. Haz clic en cualquier obra para ver más detalles.
+            Please click on any image for more information and/or to zoom in for greater details.
           </p>
         </section>
 
