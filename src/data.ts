@@ -65,9 +65,9 @@ export const data: GaleryItem[] = [
     imageUrl: url_but_pis_quilt_2022,
     name: "But Pis Quilt",
     year: "2022",
-    description: "No description available.",
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    description: "(Two Wrecks with the Same Truck in One Night)",
+    technique: "Silkscreen, lithography, smart plate, drawing transfer, photolithography, ink, graphite, ball point pen on printmaking paper with pastel paper, transparency sheets, silver gelatin prints, and PVC. ",
+    dimensions: "32x32 in. (81.3x81.3 cm)"
   },
   {
     id: 6,
@@ -75,17 +75,17 @@ export const data: GaleryItem[] = [
     name: "Calloway County Quilt",
     year: "2008",
     description: "No description available.",
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    technique: "Silkscreen and lithography on printmaking paper with laser jet and inkjet prints on transparency sheets and embroidery thread",
+    dimensions: "40x40 in (101x101 cm)"
   },
   {
     id: 7,
     imageUrl: url_catastrophic_innocence2025,
     name: "Catastrophic Innocence",
-    year: "2025",
+    year: "2024-2025",
     description: "No description available.",
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    technique: "Acrylic, oil, and oil based enamel on canvas, silkscreen, acrylic, gouache, ink, egg tempera, colored pencil, drawing transfer, and micron pen on printmaking paper and cold press watercolor paper with PVC, aluminum flashing, pastel paper, transparency sheets, and embroidery thread.",
+    dimensions: "Approx. 40x40 in (101x101 cm)"
   },
   {
     id: 8,
@@ -93,26 +93,26 @@ export const data: GaleryItem[] = [
     name: "Daniel Cate Quilt",
     year: "2019",
     description: "No description available.",
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    technique: "Inkjet photographic prints, printmaking paper, aluminum flashing, and embroidery thread",
+    dimensions: "33x33 in (83.8x83.8 cm)"
   },
   {
     id: 9,
     imageUrl: url_frankie_macdonald_2021,
     name: "Frankie Macdonald",
     year: "2021",
-    description: "No description available.",
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    description: "Frankie MacDonald holding Deborah Driggs’ Playboy cover on Roger The Wild Child Show, 26 September 2021",
+    technique: "Pastel and printmaking paper with Bristol board and embroidery thread",
+    dimensions: "Approx. 40x40 in (101x101 cm)"
   },
   {
     id: 10,
     imageUrl: url_future_shock2024,
     name: "Future Shock",
     year: "2024",
-    description: "No description available.",
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    description: "(Earth Day 2024 Part 1)",
+    technique: "Printmaking and pastel paper with embroidery thread",
+    dimensions: "21x21 in (53.3x53.3 cm)"
   },
   {
     id: 11,
@@ -120,26 +120,26 @@ export const data: GaleryItem[] = [
     name: "Hampshire County Quilt",
     year: "2019",
     description: "No description available.",
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    technique: "inkjet photographic prints, graphite, colored pencil, acrylic, and ink on printmaking paper, aluminum flashing, and embroidery thread",
+    dimensions: "40x40 in (101x101 cm)"
   },
   {
     id: 12,
     imageUrl: url_hohenwald_quilt2024,
     name: "Hohenwald Quilt",
-    year: "2024",
-    description: "No description available.",
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    year: "2023-2024",
+    description: "(Colloidal Silver Sacrament)",
+    technique: "Ink, graphite, micron pen, acrylic, casein, silkscreen, and etching on printmaking paper and cold press watercolor paper, PVC, decorative paper, transparency sheets, craft foam, inkjet photo prints, silver gelatin prints, and embroidery thread",
+    dimensions: "44x44 in (111.75x111.75 cm)"
   },
   {
     id: 13,
     imageUrl: url_kentucky_bend2024,
     name: "Kentucky Bend",
     year: "2024",
-    description: "No description available.",
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    description: "(My Favorite Exclave)",
+    technique: "Oil and acrylic on canvas, raw colored cotton duck, PVC, stippled aluminum flashing, silkscreen, graphite, gouache, and ink on printmaking paper, inkjet photo prints, ink on glassine, ink on Bristol board, pastel paper, raw printmaking papers, colored transparency sheets, grommets, and embroidery thread",
+    dimensions: "Approx. 40x40 in (101x101 cm)"
   },
   {
     id: 14,
