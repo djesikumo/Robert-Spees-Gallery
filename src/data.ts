@@ -27,16 +27,16 @@ export const data: GaleryItem[] = [
   {
     id: 1,
     imageUrl: url_16th_quilt,
-    name: "16th Quilt",
+    name: "207 North 16th Street Apartment #1",
     year: "2020",
-    description: "No description available.",
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    description: "(Vinyl Record Necklace)",
+    technique: "Inkjet photographic prints, silver gelatin prints, Polaroid i-type film, silkscreen, watercolor, ink, micron pen, colored transparency sheets, and paper with aluminum and embroidery thread. ",
+    dimensions: "45x45 in (114x114 cm)"
   },
   {
     id: 2,
     imageUrl: url_207_apartment_2_2021,
-    name: "207 Apartment 2",
+    name: "207 North 16th Street, Apartment # 2",
     year: "2021",
     description: "(Jesse’s Paper Towel Tourniquet)",
     technique: "Silkscreen, graphite, and ink on printmaking paper and pastel paper with embroidery thread, bookbinding thread, and aluminum flashing.",
@@ -54,11 +54,11 @@ export const data: GaleryItem[] = [
   {
     id: 4,
     imageUrl: url_belvedere_quilt_2020,
-    name: "Belvedere Quilt",
+    name: "Belvedere Motel Quilt",
     year: "2020",
-    description: "No description available.",
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    description: "(If You Only Nu)",
+    technique: "Ink jet photographic prints, colored transparency sheets, photocopies on transparency sheets, ortho film prints, acrylic, ink, graphite,  colored pencil, micron pen, and silkscreen on paper with aluminum and embroidery thread",
+    dimensions: "50x50 in (127x127 in)"
   },
   {
     id: 5,
