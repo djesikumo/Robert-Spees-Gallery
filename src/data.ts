@@ -38,9 +38,9 @@ export const data: GaleryItem[] = [
     imageUrl: url_207_apartment_2_2021,
     name: "207 Apartment 2",
     year: "2021",
-    description: "No description available.",
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    description: "(Jesse’s Paper Towel Tourniquet)",
+    technique: "Silkscreen, graphite, and ink on printmaking paper and pastel paper with embroidery thread, bookbinding thread, and aluminum flashing.",
+    dimensions: "Approx. 40x40 in (101x101 cm)"
   },
   {
     id: 3,
@@ -48,8 +48,8 @@ export const data: GaleryItem[] = [
     name: "Annmarie Quilt",
     year: "2019",
     description: "No description available.",
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    technique: "Printmaking paper, pastel paper, ink jet photo prints, and embroidery thread.",
+    dimensions: "33x33 in (83.8x83.8 cm)"
   },
   {
     id: 4,
