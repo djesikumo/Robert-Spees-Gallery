@@ -193,7 +193,7 @@ const ItemDetailsModal = () => {
               onMouseMove={handleMouseMove}
               onMouseUp={handleMouseUp}
               onMouseLeave={handleMouseUp}
-              className="w-auto h-auto transition-transform duration-300 ease"
+              className="portrait:w-[95%] portrait:h-auto landscape:h-[95%] landscape:w-auto transition-transform duration-300 ease"
               style={{
                 transform: `scale(${imageZoom}) translate(${position.x}px, ${position.y}px)`,
                 cursor: imageZoom > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default',

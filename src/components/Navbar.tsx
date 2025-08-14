@@ -11,21 +11,40 @@ const Navbar = () => {
   }, [location.pathname, currentRoute, setCurrentRoute]);
 
   return (
-    <div className="flex h-40 w-full bg-black text-white font-selectric">
-      <div className="w-full flex items-center justify-between gap-4">
-        <span className='w-full flex justify-center'>
+    <div className="flex h-40 w-full p-4 bg-black text-white font-selectric text-center">
+      <div className="w-full flex items-center justify-center sm:justify-between gap-4">
+        <div className='flex flex-col flex-1 sm:hidden'>
+          <span className='w-full flex justify-center'>
+            <Link to="/" className={`text-2xl transition-colors duration-300 ease-in-out ${currentRoute === "/" ? "text-indigo-500" : "hover:text-indigo-500"}`}>Sewn Pieces</Link>
+          </span>
+          <span className='w-full flex justify-center'>
+            <Link to="/videos-films" className={`text-2xl transition-colors duration-300 ease-in-out ${currentRoute === "/videos-films" ? "text-indigo-500" : "hover:text-indigo-500"}`}>Videos/Films</Link>
+          </span>
+        </div>
+        <span className='w-full hidden sm:flex justify-center'>
           <Link to="/" className={`text-2xl transition-colors duration-300 ease-in-out ${currentRoute === "/" ? "text-indigo-500" : "hover:text-indigo-500"}`}>Sewn Pieces</Link>
         </span>
-        <span className='w-full flex justify-center'>
+        <span className='w-full hidden sm:flex justify-center'>
           <Link to="/videos-films" className={`text-2xl transition-colors duration-300 ease-in-out ${currentRoute === "/videos-films" ? "text-indigo-500" : "hover:text-indigo-500"}`}>Videos/Films</Link>
         </span>
-        <span className='w-full flex justify-center'>
+
+        {/* Rbt Sps */}
+        <span className='flex-1 flex justify-center'>
           <Link to="/rbt-sps" className={`text-4xl transition-colors duration-300 ease-in-out ${currentRoute === "/rbt-sps" ? "text-indigo-500" : "hover:text-indigo-500"}`}>Rbt.Sps</Link>
         </span>
-        <span className='w-full flex justify-center'>
+
+        <div className='flex flex-col flex-1 sm:hidden'>
+          <span className='w-full flex justify-center'>
+            <Link to="/cv" className={`text-2xl transition-colors duration-300 ease-in-out ${currentRoute === "/cv" ? "text-indigo-500" : "hover:text-indigo-500"}`}>CV</Link>
+          </span>
+          <span className='w-full flex justify-center'>
+            <Link to="/contact" className={`text-2xl transition-colors duration-300 ease-in-out ${currentRoute === "/contact" ? "text-indigo-500" : "hover:text-indigo-500"}`}>Contact</Link>
+          </span>
+        </div>
+        <span className='w-full hidden sm:flex justify-center'>
           <Link to="/cv" className={`text-2xl transition-colors duration-300 ease-in-out ${currentRoute === "/cv" ? "text-indigo-500" : "hover:text-indigo-500"}`}>CV</Link>
         </span>
-        <span className='w-full flex justify-center'>
+        <span className='w-full hidden sm:flex justify-center'>
           <Link to="/contact" className={`text-2xl transition-colors duration-300 ease-in-out ${currentRoute === "/contact" ? "text-indigo-500" : "hover:text-indigo-500"}`}>Contact</Link>
         </span>
       </div>
