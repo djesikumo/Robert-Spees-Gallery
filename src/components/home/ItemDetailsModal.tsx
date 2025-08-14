@@ -10,7 +10,7 @@ const ItemDetailsModal = () => {
   } = useApp();
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [startPos, setStartPos] = useState({ x: 0, y: 0 });
-  const imageRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Evento del controlador de zoom
@@ -20,12 +20,13 @@ const ItemDetailsModal = () => {
 
   // Evento de pulsar sobre la imagen
   const handleMouseDown = (e: React.MouseEvent) => {
+    e.preventDefault();
     if (imageZoom <= 1) return;
 
     setIsDragging(true);
     setStartPos({
-      x: e.clientX - position.x,
-      y: e.clientY - position.y,
+      x: e.clientX - position.x / imageZoom,
+      y: e.clientY - position.y / imageZoom,
     });
   }
 
@@ -36,6 +37,7 @@ const ItemDetailsModal = () => {
 
   // Evento de arrastrar la imagen
   const handleMouseMove = (e: MouseEvent) => {
+    e.preventDefault();
     if (!isDragging || imageZoom <= 1) return;
 
     const container = containerRef.current;
@@ -45,12 +47,16 @@ const ItemDetailsModal = () => {
     const containerRect = container.getBoundingClientRect();
     const imageRect = image.getBoundingClientRect();
 
-    // Calcular límites del desplazamiento
-    const maxX = (imageRect.width - containerRect.width) / 2;
-    const maxY = (imageRect.height - containerRect.height) / 2;
+    // Calcular límites del desplazamiento considerando el zoom
+    const scaledWidth = imageRect.width * imageZoom;
+    const scaledHeight = imageRect.height * imageZoom;
 
-    let newX = e.clientX - startPos.x;
-    let newY = e.clientY - startPos.y;
+    const maxX = (scaledWidth - containerRect.width) / 2;
+    const maxY = (scaledHeight - containerRect.height) / 2;
+
+    // Calcular nueva posición con ajuste de zoom
+    let newX = (e.clientX - startPos.x) * imageZoom;
+    let newY = (e.clientY - startPos.y) * imageZoom;
 
     // Limitar el desplazamiento a los bordes de la imagen
     newX = Math.min(Math.max(newX, -maxX), maxX);
@@ -63,7 +69,7 @@ const ItemDetailsModal = () => {
   const handleCloseModal = () => {
     setSelectedItem(null);
     setPosition({ x: 0, y: 0 });
-    setImageZoom(0.75);
+    setImageZoom(0.5);
   }
 
   // Navegar a la imagen anterior
@@ -73,7 +79,7 @@ const ItemDetailsModal = () => {
     const prevIndex = (currentIndex - 1 + data.length) % data.length;
     setSelectedItem(data[prevIndex]);
     setPosition({ x: 0, y: 0 });
-    setImageZoom(0.75);
+    setImageZoom(0.5);
   }
 
   // Navegar a la imagen siguiente
@@ -83,12 +89,12 @@ const ItemDetailsModal = () => {
     const nextIndex = (currentIndex + 1) % data.length;
     setSelectedItem(data[nextIndex]);
     setPosition({ x: 0, y: 0 });
-    setImageZoom(0.75);
+    setImageZoom(0.5);
   }
 
   // Cuando el zoom es x1 que la imagen se ponga nuevamente en el centro
   useEffect(() => {
-    if (imageZoom <= 1) setPosition({ x: 0, y: 0 });
+    if (imageZoom <= 0.75) setPosition({ x: 0, y: 0 });
   }, [imageZoom, setPosition]);
 
   if (!selectedItem) return null;
@@ -96,7 +102,7 @@ const ItemDetailsModal = () => {
   return (
     <div className="fixed w-screen h-screen bg-black/75 backdrop-blur-md animate-backdrop">
       {/* Barra de opciones */}
-      <div className="absolute flex w-full p-4 pr-10 items-center justify-between text-white">
+      <div className="absolute flex w-full z-50 p-4 items-center justify-between text-white">
         {/* Botón de cerrar el modal */}
         <button
           onClick={handleCloseModal}
@@ -124,8 +130,8 @@ const ItemDetailsModal = () => {
           </svg>
           <input
             type="range"
-            min={0.75}
-            max={2}
+            min={0.50}
+            max={1.50}
             step={0.01}
             value={imageZoom}
             onChange={handleZoomChange}
@@ -162,10 +168,10 @@ const ItemDetailsModal = () => {
           </svg>
         </button>
 
-        {/* Botón de navegar a la imagen anterior */}
+        {/* Botón de navegar a la imagen posterior */}
         <button
           onClick={handleNextImage}
-          className="absolute right-10 z-50 flex items-center justify-center h-12 w-12 rounded-full cursor-pointer transition-colors duration-300 ease hover:bg-gray-500/50"
+          className="absolute right-4 z-50 flex items-center justify-center h-12 w-12 rounded-full cursor-pointer transition-colors duration-300 ease hover:bg-gray-500/50"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="icon icon-tabler icons-tabler-filled icon-tabler-caret-right">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -176,22 +182,25 @@ const ItemDetailsModal = () => {
         {/* Imagen */}
         <div
           ref={containerRef}
-          className="w-full h-full overflow-hidden animate-modal-image-enter"
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
+          className="relative w-full h-full overflow-hidden"
         >
-          <div
-            ref={imageRef}
-            className="w-full h-full inset-0 bg-center bg-no-repeat bg-contain object-cover"
-            style={{
-              backgroundImage: `url(${selectedItem.imageUrl})`,
-              transform: `scale(${imageZoom}) translate(${position.x}px, ${position.y}px)`,
-              cursor: imageZoom > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default',
-              transition: isDragging ? 'none' : 'transform 0.3s ease'
-            }}
-          />
+          <div className="absolute flex items-center justify-center inset-0 overflow-auto z-10 animate-modal-image-enter">
+            <img
+              ref={imageRef}
+              src={selectedItem.imageUrl}
+              alt={`${selectedItem.name}, ${selectedItem.year}`}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+              className="w-auto h-auto transition-transform duration-300 ease"
+              style={{
+                transform: `scale(${imageZoom}) translate(${position.x}px, ${position.y}px)`,
+                cursor: imageZoom > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default',
+                transition: isDragging ? 'none' : 'transform 0.3s ease'
+              }}
+            />
+          </div>
         </div>
 
         {/* Detalles de la imagen */}

@@ -10,7 +10,7 @@ interface NavigationProviderProps {
 export const ApplicationProvider: React.FC<NavigationProviderProps> = ({ children }) => {
   const [currentRoute, setCurrentRoute] = useState<string>("/");
   const [selectedItem, setSelectedItem] = useState<GaleryItem | null>(null);
-  const [imageZoom, setImageZoom] = useState<number>(0.75);
+  const [imageZoom, setImageZoom] = useState<number>(0.6);
   const [position, setPosition] = useState<Position>({ x: 0, y: 0 })
 
   const value: ApplicationContextType = {
