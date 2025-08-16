@@ -14,7 +14,7 @@ const GaleryItem = ({ item }: GaleryItemProps) => {
     >
       <div className="overflow-hidden">
         <img src={item.imageUrl} alt={`${item.name}, ${item.year}`}
-          className="w-[348px] h-[348px] object-cover rounded-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-105"
+          className="object-contain rounded-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-105"
         />
       </div>
       <div className="flex flex-col items-center p-4 w-full">

@@ -21,10 +21,10 @@ const Navbar = () => {
             <Link to="/videos-films" className={`text-2xl transition-colors duration-300 ease-in-out ${currentRoute === "/videos-films" ? "text-indigo-500" : "hover:text-indigo-500"}`}>Videos/Films</Link>
           </span>
         </div>
-        <span className='w-full hidden sm:flex justify-center'>
+        <span className='w-full hidden sm:flex flex-1 justify-center'>
           <Link to="/" className={`text-2xl transition-colors duration-300 ease-in-out ${currentRoute === "/" ? "text-indigo-500" : "hover:text-indigo-500"}`}>Sewn Pieces</Link>
         </span>
-        <span className='w-full hidden sm:flex justify-center'>
+        <span className='w-full hidden sm:flex flex-1 justify-center'>
           <Link to="/videos-films" className={`text-2xl transition-colors duration-300 ease-in-out ${currentRoute === "/videos-films" ? "text-indigo-500" : "hover:text-indigo-500"}`}>Videos/Films</Link>
         </span>
 
@@ -41,10 +41,10 @@ const Navbar = () => {
             <Link to="/contact" className={`text-2xl transition-colors duration-300 ease-in-out ${currentRoute === "/contact" ? "text-indigo-500" : "hover:text-indigo-500"}`}>Contact</Link>
           </span>
         </div>
-        <span className='w-full hidden sm:flex justify-center'>
+        <span className='w-full hidden sm:flex flex-1 justify-center'>
           <Link to="/cv" className={`text-2xl transition-colors duration-300 ease-in-out ${currentRoute === "/cv" ? "text-indigo-500" : "hover:text-indigo-500"}`}>CV</Link>
         </span>
-        <span className='w-full hidden sm:flex justify-center'>
+        <span className='w-full hidden sm:flex flex-1 justify-center'>
           <Link to="/contact" className={`text-2xl transition-colors duration-300 ease-in-out ${currentRoute === "/contact" ? "text-indigo-500" : "hover:text-indigo-500"}`}>Contact</Link>
         </span>
       </div>

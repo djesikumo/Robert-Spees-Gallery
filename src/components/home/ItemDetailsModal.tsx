@@ -204,11 +204,11 @@ const ItemDetailsModal = () => {
         </div>
 
         {/* Detalles de la imagen */}
-        <div className="absolute flex flex-col items-center justify-center bottom-0 w-full h-32 text-white">
+        <div className="absolute flex flex-col items-center justify-center bottom-0 w-7/8 h-32 text-white">
           <p className="italic">{`${selectedItem.name}, ${selectedItem.year}`}</p>
-          <p>{selectedItem.technique}</p>
+          <p className="text-center">{selectedItem.technique}</p>
           <p>{selectedItem.dimensions}</p>
-          <p>{selectedItem.description}</p>
+          <p>{selectedItem.description ? selectedItem.description : "No description available."}</p>
         </div>
       </div>
     </div>
