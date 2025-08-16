@@ -8,9 +8,9 @@ const HomePage = () => {
       <main className="w-full flex flex-col px-4 py-12 bg-gray-100">
         {/* Descripción */}
         <section className="text-center">
-          <h2 className="gallery-title text-4xl font-bold mb-4">Selected Pieces</h2>
+          <h2 className="gallery-title text-4xl font-bold mb-4 font-selectric">Selected Pieces</h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            Please click on any image for more information and/or to zoom in for greater details.
+            Please click on any image for more information and/or to zoom in for greater detail.
           </p>
         </section>
 

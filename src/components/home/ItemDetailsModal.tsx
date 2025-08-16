@@ -116,17 +116,10 @@ const ItemDetailsModal = () => {
         </button>
 
         {/* Controlador del zoom */}
-        <div className="flex items-center w-2/5 gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-zoom-out-area z-50">
+        <div className="hidden md:flex items-center w-2/5 gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-minus z-50">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M13 15h4" />
-            <path d="M15 15m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" />
-            <path d="M22 22l-3 -3" />
-            <path d="M6 18h-1a2 2 0 0 1 -2 -2v-1" />
-            <path d="M3 11v-1" />
-            <path d="M3 6v-1a2 2 0 0 1 2 -2h1" />
-            <path d="M10 3h1" />
-            <path d="M15 3h1a2 2 0 0 1 2 2v1" />
+            <path d="M5 12l14 0" />
           </svg>
           <input
             type="range"
@@ -137,17 +130,9 @@ const ItemDetailsModal = () => {
             onChange={handleZoomChange}
             className="w-full h-1 z-50 bg-white rounded-lg appearance-none cursor-pointer ease"
           />
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-zoom-in-area z-50">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-plus z-50">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M15 13v4" />
-            <path d="M13 15h4" />
-            <path d="M15 15m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" />
-            <path d="M22 22l-3 -3" />
-            <path d="M6 18h-1a2 2 0 0 1 -2 -2v-1" />
-            <path d="M3 11v-1" />
-            <path d="M3 6v-1a2 2 0 0 1 2 -2h1" />
-            <path d="M10 3h1" />
-            <path d="M15 3h1a2 2 0 0 1 2 2v1" />
+            <path d="M12 5l0 14" /><path d="M5 12l14 0" />
           </svg>
         </div>
 
@@ -193,7 +178,7 @@ const ItemDetailsModal = () => {
               onMouseMove={handleMouseMove}
               onMouseUp={handleMouseUp}
               onMouseLeave={handleMouseUp}
-              className="portrait:w-[95%] portrait:h-auto landscape:h-[95%] landscape:w-auto transition-transform duration-300 ease"
+              className="portrait:w-[125%] portrait:h-auto landscape:h-[125%] landscape:w-auto transition-transform duration-300 ease"
               style={{
                 transform: `scale(${imageZoom}) translate(${position.x}px, ${position.y}px)`,
                 cursor: imageZoom > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default',
@@ -205,10 +190,10 @@ const ItemDetailsModal = () => {
 
         {/* Detalles de la imagen */}
         <div className="absolute flex flex-col items-center justify-center bottom-0 w-7/8 h-32 text-white">
-          <p className="italic">{`${selectedItem.name}, ${selectedItem.year}`}</p>
+          <p className="text-center italic">{`${selectedItem.name}, ${selectedItem.year}`}</p>
           <p className="text-center">{selectedItem.technique}</p>
           <p>{selectedItem.dimensions}</p>
-          <p>{selectedItem.description ? selectedItem.description : "No description available."}</p>
+          {selectedItem.description && <p>{selectedItem.description}</p>}
         </div>
       </div>
     </div>

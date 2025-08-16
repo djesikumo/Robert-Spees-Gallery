@@ -2,7 +2,7 @@ export interface GaleryItem {
   id: number;
   imageUrl: string;
   name: string;
-  description: string | null;
+  description?: string;
   year: string;
   technique: string;
   dimensions: string;
