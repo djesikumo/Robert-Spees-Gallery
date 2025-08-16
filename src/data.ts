@@ -101,7 +101,7 @@ export const data: GaleryItem[] = [
     imageUrl: url_frankie_macdonald_2021,
     name: "Frankie Macdonald holding Deborah Driggs’ Playboy cover on Roger The Wild Child Show, 26 September 2021",
     year: "2021",
-    description: "",
+    description: null,
     technique: "Pastel and printmaking paper with Bristol board and embroidery thread",
     dimensions: "Approx. 40x40 in (101x101 cm)"
   },
@@ -147,8 +147,8 @@ export const data: GaleryItem[] = [
     name: "Livingston County Quilt",
     year: "2019",
     description: null,
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    technique: "inkjet photo prints, laserjet prints on vellum, graphite, ink, acrylic, latex enamel, gouache, and silkscreen on printmaking and drawing paper with aluminum flashing, colored transparency sheets, and embroidery thread",
+    dimensions: "44x48 in. (117.75x122 cm)"
   },
   {
     id: 15,
@@ -156,8 +156,8 @@ export const data: GaleryItem[] = [
     name: "Melber Quilt",
     year: "2021",
     description: null,
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    technique: "Lithography, etching, silkscreen, photolithography, drawing transfer, graphite, gouache, and monotype on printmaking paper with ink jet photographic prints, colored transparency sheets, and embroidery thread",
+    dimensions: "40x40 in (101x101 cm)"
   },
   {
     id: 16,
@@ -165,8 +165,8 @@ export const data: GaleryItem[] = [
     name: "North 16th Street Revisited",
     year: "2022",
     description: null,
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    technique: "Printmaking paper, pastel paper, Bristol board, clear and colored transparency sheets, and embroidery thread.",
+    dimensions: "32x32 in. (81.3x81.3 cm)"
   },
   {
     id: 17,
@@ -174,17 +174,17 @@ export const data: GaleryItem[] = [
     name: "Ohio County Quilt",
     year: "2007",
     description: null,
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    technique: "Silkscreen, lithography, and drawing transfer on printmaking paper with laser jet and inkjet prints on transparencies and embroidery thread.",
+    dimensions: "40x40 in (101x101 cm)"
   },
   {
     id: 18,
     imageUrl: url_portrait_of_andro_dadiani_2022,
-    name: "Portrait of Andro Dadiani",
+    name: "Portrait of Andro Dadiani (Punchula Samgorshi)",
     year: "2022",
     description: null,
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    technique: "Printmaking paper, pastel paper, PVC, ink, acrylic, and embroidery thread.",
+    dimensions: "40x40 in (101x101 cm)"
   },
   {
     id: 19,
@@ -192,17 +192,17 @@ export const data: GaleryItem[] = [
     name: "Pottertown Quilt",
     year: "2021",
     description: null,
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    technique: "Printmaking paper, pastel paper, clear and colored transparency sheets, aluminum, and PVC with embroidery thread.",
+    dimensions: "32x32 in. (81.3x81.3 cm)"
   },
   {
     id: 20,
     imageUrl: url_to_cooter_brown_2024,
-    name: "To Cooter Brown",
+    name: "To Cooter Brown (2012 Wet, Dry, and Moist Map of Kentucky)",
     year: "2024",
     description: null,
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    technique: "Silkscreen, photolithography, ink, graphite, and acrylic on printmaking paper; oil and acrylic on canvas, acrylic on mylar, stippled aluminum flashing, clear and colored transparency sheets, heavyweight drawing paper, Polaroid I-type film, PVC, pastel paper collaged to printmaking paper with YES! Paste, and embroidery thread.",
+    dimensions: "40x40 in (101x101 cm)"
   },
   {
     id: 21,
@@ -210,17 +210,17 @@ export const data: GaleryItem[] = [
     name: "To Florine McKenney",
     year: "2022",
     description: null,
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    technique: "Inkjet photo prints, ink, lithography, silkscreen, drawing transfer, printmaking paper, clear and colored transparency sheets, PVC, laserjet prints on transparency sheets, aluminum flashing, acrylic on mylar, embroidery thread. ",
+    dimensions: "36x37 in (91.4x91.4 cm)"
   },
   {
     id: 22,
     imageUrl: url_tom_daley_2022,
-    name: "Tom Daley",
+    name: "Portrait of Tom Daley (The Dick Slip Incident, 2018 Commonwealth Games)",
     year: "2022",
     description: null,
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    technique: "Acrylic on mylar with printmaking paper, handmade decorative paper, pastel paper, Bristol board, and embroidery thread.",
+    dimensions: "40x40 in (101x101 cm)"
   },
   {
     id: 23,
@@ -228,7 +228,7 @@ export const data: GaleryItem[] = [
     name: "Wickliffe Quilt (Almost to Cairo)",
     year: "2023",
     description: null,
-    technique: "Mixed media",
-    dimensions: "Not specified"
+    technique: "Silkscreen, smart plate, lithography, etching, drawing transfer, monotype, ink, micron pen, graphite, colored pencil, acrylic, casein, and gouache on printmaking paper and cold press watercolor paper with pastel paper, stippled aluminum flashing, PVC, transparency sheets, laser jet prints on transparency sheets, inkjet photo prints, mylar, and embroidery thread. ",
+    dimensions: "44x44 in (112x112 cm)"
   }
 ]
