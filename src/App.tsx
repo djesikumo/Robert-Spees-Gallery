@@ -2,6 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApplicationProvider } from "./utils/ApplicationContext";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
+import VideosFilmsPage from "./pages/VideosFilmsPage";
+import RbtSpsPage from "./pages/RbtSpsPage";
+import CvPage from "./pages/CvPage";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
   return (
@@ -12,6 +16,10 @@ function App() {
             <Navbar />
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/videos-films" element={<VideosFilmsPage />} />
+              <Route path="/rbt-sps" element={<RbtSpsPage />} />
+              <Route path="/cv" element={<CvPage />} />
+              <Route path="/contact" element={<ContactPage />} />
             </Routes>
           </div>
         </Router>
