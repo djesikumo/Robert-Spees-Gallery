@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <div className="flex h-40 w-full p-4 bg-black text-white font-selectric text-center">
-      <div className="w-full flex items-center justify-center sm:justify-between gap-4">
+      <div className="w-full flex items-center justify-center sm:justify-between gap-2 sm:gap-4">
         <div className='flex flex-col flex-1 sm:hidden'>
           <span className='w-full flex justify-center'>
             <Link to="/" className={`text-2xl transition-colors duration-300 ease-in-out ${currentRoute === "/" ? "text-indigo-500" : "hover:text-indigo-500"}`}>Sewn Pieces</Link>
@@ -30,7 +30,7 @@ const Navbar = () => {
 
         {/* Rbt Sps */}
         <span className='flex-1 flex justify-center'>
-          <Link to="/rbt-sps" className={`text-4xl transition-colors duration-300 ease-in-out ${currentRoute === "/rbt-sps" ? "text-indigo-500" : "hover:text-indigo-500"}`}>Rbt.Sps</Link>
+          <Link to="/rbt-sps" className={`text-4xl transition-colors duration-300 ease-in-out ${currentRoute === "/rbt-sps" ? "text-indigo-500" : "hover:text-indigo-500"}`}>Rbt.Sps.</Link>
         </span>
 
         <div className='flex flex-col flex-1 sm:hidden'>
