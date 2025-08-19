@@ -30,7 +30,7 @@ const Navbar = () => {
 
         {/* Rbt Sps */}
         <span className='flex-1 flex justify-center'>
-          <Link to="/rbt-sps" className={`text-2xl sm:text-4xl transition-colors duration-300 ease-in-out ${currentRoute === "/rbt-sps" ? "text-indigo-500" : "hover:text-indigo-500"}`}>Rbt.Sps.</Link>
+          <p className="text-2xl sm:text-4xl">Rbt.Sps.</p>
         </span>
 
         <div className='flex flex-col flex-1 sm:hidden'>

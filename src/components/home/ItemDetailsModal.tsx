@@ -141,7 +141,7 @@ const ItemDetailsModal = () => {
       </div>
 
       {/* Layout del modal */}
-      <div className="h-screen flex justify-center items-center text-white">
+      <div className="h-screen flex flex-col justify-center items-center text-white">
         {/* Botón de navegar a la imagen anterior */}
         <button
           onClick={handlePrevImage}
@@ -167,33 +167,31 @@ const ItemDetailsModal = () => {
         {/* Imagen */}
         <div
           ref={containerRef}
-          className="relative w-full h-full overflow-hidden"
+          className="w-full h-full flex items-center justify-center overflow-hidden z-10 animate-modal-image-enter"
         >
-          <div className="absolute flex items-center justify-center inset-0 overflow-auto z-10 animate-modal-image-enter">
-            <img
-              ref={imageRef}
-              src={selectedItem.imageUrl}
-              alt={`${selectedItem.name}, ${selectedItem.year}`}
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseUp}
-              className="portrait:w-[125%] portrait:h-auto landscape:h-[125%] landscape:w-auto transition-transform duration-300 ease"
-              style={{
-                transform: `scale(${imageZoom}) translate(${position.x}px, ${position.y}px)`,
-                cursor: imageZoom > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default',
-                transition: isDragging ? 'none' : 'transform 0.3s ease'
-              }}
-            />
-          </div>
+          <img
+            ref={imageRef}
+            src={selectedItem.imageUrl}
+            alt={`${selectedItem.name}, ${selectedItem.year}`}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            className="portrait:w-[125%] portrait:h-auto landscape:h-[125%] landscape:w-auto transition-transform duration-300 ease-in-out"
+            style={{
+              transform: `scale(${imageZoom}) translate(${position.x}px, ${position.y}px)`,
+              cursor: imageZoom > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default',
+              transition: isDragging ? 'none' : 'transform 0.3s ease'
+            }}
+          />
         </div>
 
         {/* Detalles de la imagen */}
-        <div className="absolute flex flex-col items-center justify-center bottom-0 w-7/8 h-32 text-white">
+        <div className="absolute flex flex-col items-center justify-center py-2 bottom-0 w-7/8 h-auto text-white">
           <p className="text-center italic">{`${selectedItem.name}, ${selectedItem.year}`}</p>
           <p className="text-center">{selectedItem.technique}</p>
-          <p>{selectedItem.dimensions}</p>
-          {selectedItem.description && <p>{selectedItem.description}</p>}
+          <p className="text-center">{selectedItem.dimensions}</p>
+          {selectedItem.description && <p className="text-center">{selectedItem.description}</p>}
         </div>
       </div>
     </div>
