@@ -1,9 +1,9 @@
 import UnderConstruction from "../components/UnderConstruction"
 
-const ContactPage = () => {
+const BiographyPage = () => {
   return (
     <UnderConstruction />
   )
 }
 
-export default ContactPage
+export default BiographyPage

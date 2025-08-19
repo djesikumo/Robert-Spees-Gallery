@@ -1,11 +1,17 @@
+import { useApp } from "../utils/hooks"
 import GalerySection from "../components/home/GalerySection"
 import ItemDetailsModal from "../components/home/ItemDetailsModal"
 import { data } from "../data"
 
 const HomePage = () => {
+  const { selectedItem } = useApp();
+  
   return (
     <>
-      <main className="w-full flex flex-col px-4 py-12 bg-gray-100">
+      <main
+        className="w-full flex flex-col px-4 py-12 bg-gray-100"
+        style={{ height: `${selectedItem ? "calc(100vh - 160px)" : "auto"}`, overflow: `${selectedItem ? "hidden" : "auto"}` }}
+      >
         {/* Descripción */}
         <section className="text-center">
           <h2 className="gallery-title text-4xl font-bold mb-4 font-selectric">Selected Pieces</h2>
