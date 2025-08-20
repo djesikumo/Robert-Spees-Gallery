@@ -30,7 +30,7 @@ const Navbar = () => {
 
         {/* Rbt Sps */}
         <span className='flex-1 flex justify-center'>
-          <p className="text-2xl sm:text-4xl">Rbt.Sps.</p>
+          <p className="text-2xl sm:text-4xl">Rbt. Sps.</p>
         </span>
 
         <div className='flex flex-col flex-1 sm:hidden'>

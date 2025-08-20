@@ -23,12 +23,52 @@
   animation: fade-in 0.3s ease-out forwards;
 }
 
-/* Animación personalizada de entrada de imagen en el modal */
+/* Animaciones personalizadas de entrada y salida de imagen en el modal */
 @keyframes modal-image-enter {
-  from { transform: scale(0.5); }
+  from { transform: scale(0); }
   to { transform: scale(1); }
 }
 
+@keyframes modal-image-exit {
+  from { transform: scale(1); }
+  to { transform: scale(0); }
+}
+
 .animate-modal-image-enter {
-  animation: modal-image-enter 0.3s ease forwards;
+  animation: modal-image-enter 0.5s ease forwards;
+}
+
+.animate-modal-image-exit {
+  animation: modal-image-exit 0.3s ease forwards;
+}
+
+/* Animaciones personalizadas de entrada y salida de los detalles de los artworks */
+@keyframes slide-in-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out-down {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.animate-details-enter {
+  animation: slide-in-up 0.5s ease-out forwards;
+}
+
+.animate-details-exit {
+  animation: slide-out-down 0.5s ease-in forwards;
 }

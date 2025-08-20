@@ -1,20 +1,20 @@
 // https://yesicon.app/ -> line-mid:icons
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
-  <section className="mb-8 text-center">
+  <section className="mb-8">
     <h2 className="text-2xl font-bold mb-2 text-gray-800">{title}</h2>
     <div className="space-y-1">{children}</div>
   </section>
 )
 
 const Education = ({ text }: { text: string }) => (
-  <div className="flex items-start justify-center">
+  <div className="flex items-start">
     <p className="text-gray-700">{`• ${text}`}</p>
   </div>
 )
 
 const Exhibitions = ({ year, children }: { year: string; children: React.ReactNode }) => (
-  <div className="mb-2 text-center">
+  <div className="mb-2">
     <h3 className="text-xl font-semibold mb-2 text-gray-500 italic">{year}</h3>
     <div className="space-y-2 pl-4 text-gray-700">{children}</div>
   </div>
@@ -26,7 +26,7 @@ const Press = ({ author, title, publication, date }: {
   publication: string;
   date: string
 }) => (
-  <div className="mb-2 text-center">
+  <div className="mb-2">
     <p className="font-medium text-gray-700">{author}</p>
     <p className="text-gray-700">“{title}”, <span className="italic">{publication}</span>, {date}</p>
   </div>
