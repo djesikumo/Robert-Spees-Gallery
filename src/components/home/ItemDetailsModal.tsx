@@ -119,7 +119,9 @@ const ItemDetailsModal = () => {
   if (!selectedItem) return null;
 
   return (
-    <div className="fixed w-screen h-screen bg-black/75 backdrop-blur-md animate-backdrop">
+    <div className="fixed w-screen bg-black/75 backdrop-blur-md animate-backdrop"
+      style={{ height: "100dvh" }}
+    >
       {/* Barra de opciones */}
       <div className={`absolute flex w-full p-4 items-center justify-between text-white ${isDetailsOpen ? "z-30" : "z-50"}`}>
         {/* Botón de cerrar el modal */}
