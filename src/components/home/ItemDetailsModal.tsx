@@ -139,24 +139,28 @@ const ItemDetailsModal = () => {
         </div>
 
         {/* Controlador del zoom */}
-        <div className="hidden md:flex flex-1 items-center w-2/5 gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-minus z-50">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M5 12l14 0" />
-          </svg>
-          <input
-            type="range"
-            min={0.50}
-            max={1.50}
-            step={0.01}
-            value={imageZoom}
-            onChange={handleZoomChange}
-            className="w-full h-1 z-50 bg-white rounded-lg appearance-none cursor-pointer ease"
-          />
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-plus z-50">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M12 5l0 14" /><path d="M5 12l14 0" />
-          </svg>
+        <div className="flex flex-1 items-center w-2/5 gap-2">
+          {!isDetailsOpen && (
+            <>
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-minus z-50">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l14 0" />
+              </svg>
+              <input
+                type="range"
+                min={0.50}
+                max={1.50}
+                step={0.01}
+                value={imageZoom}
+                onChange={handleZoomChange}
+                className="w-full h-1 z-50 bg-white rounded-lg appearance-none cursor-pointer ease"
+              />
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-plus z-50">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 5l0 14" /><path d="M5 12l14 0" />
+              </svg>
+            </>
+          )}
         </div>
 
         {/* Botones de navegar a la imagen anterior y posterior */}
@@ -212,6 +216,9 @@ const ItemDetailsModal = () => {
             src={selectedItem.imageUrl}
             alt={`${selectedItem.name}, ${selectedItem.year}`}
             className={`md:hidden flex portrait:w-4/5 portrait:h-auto landscape:h-4/5 landscape:w-auto transition-transform duration-300 ease-in ${isDetailsOpen ? "scale-0" : "scale-100"}`}
+            style={{
+              transform: `scale(${0.5 + imageZoom}) translate(${position.x}px, ${position.y}px)`
+            }}
           />
         </div>
 
