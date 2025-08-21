@@ -7,8 +7,12 @@ interface GalerySectionProps {
 
 const GalerySection = ({ items }: GalerySectionProps) => {
   return (
-    <section className="p-4 flex flex-col items-center md:items-start md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-      {items.map(item => (<GaleryItem key={item.id} item={item} />))}
+    <section className="p-4 items-start justify-center grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+      {items.map(item => (
+        <div className="w-full flex items-center justify-center">
+          <GaleryItem key={item.id} item={item} />
+        </div>
+      ))}
     </section>
   )
 }
