@@ -8,13 +8,13 @@ const GaleryItem = ({ item }: GaleryItemProps) => {
   const { setSelectedItem } = useApp()
 
   return (
-    <div className="max-w-[372px] p-4">
+    <div className="max-w-[372px] p-1 sm:p-4">
       <div
         onClick={() => setSelectedItem(item)} 
         className="overflow-hidden"
       >
         <img src={item.imageUrl} alt={`${item.name}, ${item.year}`}
-          className="object-contain rounded-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-105"
+          className="w-full object-contain rounded-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-105"
         />
       </div>
       <div className="flex flex-col items-center p-4 w-full">

@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <>
       <main
-        className="w-full flex flex-col px-4 py-12 bg-gray-100"
+        className="w-full flex flex-col px-2 sm:px-4 py-8 sm:py-12 bg-gray-100"
         style={{ height: `${selectedItem ? "calc(100vh - 160px)" : "auto"}`, overflow: `${selectedItem ? "hidden" : "auto"}` }}
       >
         {/* Descripción */}
