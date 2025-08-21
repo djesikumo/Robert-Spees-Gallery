@@ -103,13 +103,13 @@ const ItemDetailsModal = () => {
   useEffect(() => {
     const handleResize = () => {
       // Si el ancho supera el breakpoint sm (640px) y los detalles están abiertos, los cerramos
-      if (window.innerWidth >= 640 && isDetailsOpen) {
+      if (window.innerWidth >= 768 && isDetailsOpen) {
         setIsDetailsOpen(false);
       }
     };
     // Agregar listener al montar
     window.addEventListener('resize', handleResize);
-    
+
     // Verificar el tamaño inicial
     handleResize();
     // Limpiar listener al desmontar
@@ -187,54 +187,36 @@ const ItemDetailsModal = () => {
       {/* Layout del modal */}
       <div className="h-screen flex flex-col justify-center items-center text-white">
         {/* Imagen */}
-        {!isDetailsOpen ? (
-          <div
-            ref={containerRef}
-            className="w-full h-full flex items-center justify-center overflow-hidden z-10 animate-modal-image-enter"
-          >
-            <img
-              ref={imageRef}
-              src={selectedItem.imageUrl}
-              alt={`${selectedItem.name}, ${selectedItem.year}`}
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseUp}
-              className="portrait:w-[125%] portrait:h-auto landscape:h-[125%] landscape:w-auto transition-transform duration-300 ease-in-out"
-              style={{
-                transform: `scale(${imageZoom}) translate(${position.x}px, ${position.y}px)`,
-                cursor: imageZoom > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default',
-                transition: isDragging ? 'none' : 'transform 0.3s ease'
-              }}
-            />
-          </div>
-        ) : (
-          <div
-            ref={containerRef}
-            className="w-full h-full flex items-center justify-center overflow-hidden z-10 animate-modal-image-exit"
-          >
-            <img
-              ref={imageRef}
-              src={selectedItem.imageUrl}
-              alt={`${selectedItem.name}, ${selectedItem.year}`}
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseUp}
-              className="portrait:w-[125%] portrait:h-auto landscape:h-[125%] landscape:w-auto transition-transform duration-300 ease-in-out"
-              style={{
-                transform: `scale(${imageZoom}) translate(${position.x}px, ${position.y}px)`,
-                cursor: imageZoom > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default',
-                transition: isDragging ? 'none' : 'transform 0.3s ease'
-              }}
-            />
-          </div>
-        )}
+        <div
+          ref={containerRef}
+          className="w-full h-full flex items-center justify-center overflow-hidden z-10 animate-modal-image-enter"
+        >
+          <img
+            ref={imageRef}
+            src={selectedItem.imageUrl}
+            alt={`${selectedItem.name}, ${selectedItem.year}`}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            className="hidden md:flex transition-transform duration-300 ease-in-out"
+            style={{
+              transform: `scale(${imageZoom}) translate(${position.x}px, ${position.y}px)`,
+              cursor: imageZoom > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default',
+              transition: isDragging ? 'none' : 'transform 0.3s ease'
+            }}
+          />
+          <img
+            src={selectedItem.imageUrl}
+            alt={`${selectedItem.name}, ${selectedItem.year}`}
+            className={`md:hidden flex portrait:w-4/5 portrait:h-auto landscape:h-4/5 landscape:w-auto transition-transform duration-300 ease-in ${isDetailsOpen ? "scale-0" : "scale-100"}`}
+          />
+        </div>
 
         {/* Botón toggle para desplegar u ocultar los detalles del artwork */}
         <div
           onClick={() => setIsDetailsOpen(!isDetailsOpen)}
-          className={`absolute flex sm:hidden items-center py-2 z-30 transition-all duration-300 ease-in-out ${isDetailsOpen ? "top-0 flex-col-reverse" : "bottom-0 flex-col"}`}
+          className={`absolute flex md:hidden items-center py-2 z-30 transition-all duration-300 ease-in-out ${isDetailsOpen ? "top-0 flex-col-reverse" : "bottom-0 flex-col"}`}
         >
           <button className="flex items-center justify-center h-12 w-12 rounded-full cursor-pointer transition-colors duration-300 ease-in-out hover:bg-gray-500/50">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" className={`${isDetailsOpen ? "rotate-180" : ""}`}>
@@ -245,22 +227,13 @@ const ItemDetailsModal = () => {
         </div>
 
         {/* Dialog de los detalles del artwork */}
-        {isDetailsOpen ? (
-          <div className="absolute flex flex-col sm:hidden items-center justify-center p-2 w-full h-full z-20 animate-details-enter">
-            <p className="text-center italic">{`${selectedItem.name}, ${selectedItem.year}`}</p>
-            <p className="text-center">{selectedItem.technique}</p>
-            <p className="text-center">{selectedItem.dimensions}</p>
-            {selectedItem.description && <p className="text-center">{selectedItem.description}</p>}
-          </div>
-        ) : (
-          <div className={`absolute flex flex-col sm:hidden items-center justify-center p-2 w-full h-full z-20 animate-details-exit`}>
-            <p className="text-center italic">{`${selectedItem.name}, ${selectedItem.year}`}</p>
-            <p className="text-center">{selectedItem.technique}</p>
-            <p className="text-center">{selectedItem.dimensions}</p>
-            {selectedItem.description && <p className="text-center">{selectedItem.description}</p>}
-          </div>
-        )}
-        <div className="absolute sm:flex sm:flex-col hidden items-center justify-center py-2 bottom-0 w-7/8 h-auto text-white">
+        <div className={`absolute flex flex-col md:hidden items-center justify-center p-2 w-full h-full z-20 transition-transform duration-500 ease-in ${isDetailsOpen ? "translate-y-0" : "translate-y-full"}`}>
+          <p className="text-center italic">{`${selectedItem.name}, ${selectedItem.year}`}</p>
+          <p className="text-center">{selectedItem.technique}</p>
+          <p className="text-center">{selectedItem.dimensions}</p>
+          {selectedItem.description && <p className="text-center">{selectedItem.description}</p>}
+        </div>
+        <div className="absolute md:flex md:flex-col hidden items-center justify-center py-2 bottom-0 w-7/8 h-auto text-white">
           <p className="text-center italic">{`${selectedItem.name}, ${selectedItem.year}`}</p>
           <p className="text-center">{selectedItem.technique}</p>
           <p className="text-center">{selectedItem.dimensions}</p>

@@ -18,7 +18,7 @@ const GaleryItem = ({ item }: GaleryItemProps) => {
         />
       </div>
       <div className="flex flex-col items-center p-4 w-full">
-        <h3 className="text-lg md:text-2xl font-medium text-center font-selectric line-clamp-2 md:line-clamp-none">{item.name}</h3>
+        <h3 className="text-lg md:text-2xl font-medium text-center font-selectric line-clamp-3 md:line-clamp-none">{item.name}</h3>
         <p className="text-sm md:text-lg text-gray-500">{item.year}</p>
       </div>
     </div>

@@ -41,34 +41,3 @@
 .animate-modal-image-exit {
   animation: modal-image-exit 0.3s ease forwards;
 }
-
-/* Animaciones personalizadas de entrada y salida de los detalles de los artworks */
-@keyframes slide-in-up {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-out-down {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-}
-
-.animate-details-enter {
-  animation: slide-in-up 0.5s ease-out forwards;
-}
-
-.animate-details-exit {
-  animation: slide-out-down 0.5s ease-in forwards;
-}
