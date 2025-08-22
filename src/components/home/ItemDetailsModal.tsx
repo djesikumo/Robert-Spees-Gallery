@@ -11,6 +11,7 @@ const ItemDetailsModal = () => {
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [startPos, setStartPos] = useState({ x: 0, y: 0 });
   const [isDetailsOpen, setIsDetailsOpen] = useState<boolean>(false);
+  const [isDraggable, setIsDraggable] = useState<boolean>(false);
   const imageRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -22,13 +23,10 @@ const ItemDetailsModal = () => {
   // Evento de pulsar sobre la imagen
   const handleMouseDown = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (imageZoom <= 1) return;
+    if (!isDraggable) return;
 
     setIsDragging(true);
-    setStartPos({
-      x: e.clientX - position.x / imageZoom,
-      y: e.clientY - position.y / imageZoom,
-    });
+    setStartPos({ x: e.clientX - position.x, y: e.clientY - position.y });
   }
 
   // Evento de liberar el click
@@ -39,38 +37,19 @@ const ItemDetailsModal = () => {
   // Evento de arrastrar la imagen
   const handleMouseMove = (e: MouseEvent) => {
     e.preventDefault();
-    if (!isDragging || imageZoom <= 1) return;
+    if (!isDragging || !isDraggable) return;
 
-    const container = containerRef.current;
-    const image = imageRef.current;
-    if (!container || !image) return;
-
-    const containerRect = container.getBoundingClientRect();
-    const imageRect = image.getBoundingClientRect();
-
-    // Calcular límites del desplazamiento considerando el zoom
-    const scaledWidth = imageRect.width * imageZoom;
-    const scaledHeight = imageRect.height * imageZoom;
-
-    const maxX = (scaledWidth - containerRect.width) / 2;
-    const maxY = (scaledHeight - containerRect.height) / 2;
-
-    // Calcular nueva posición con ajuste de zoom
-    let newX = (e.clientX - startPos.x) * imageZoom;
-    let newY = (e.clientY - startPos.y) * imageZoom;
-
-    // Limitar el desplazamiento a los bordes de la imagen
-    newX = Math.min(Math.max(newX, -maxX), maxX);
-    newY = Math.min(Math.max(newY, -maxY), maxY);
-
-    setPosition({ x: newX, y: newY });
+    setPosition({
+      x: e.clientX - startPos.x,
+      y: e.clientY - startPos.y,
+    });
   }
 
   // Evento de cerrar el modal
   const handleCloseModal = () => {
     setSelectedItem(null);
     setPosition({ x: 0, y: 0 });
-    setImageZoom(0.5);
+    setImageZoom(1);
     setIsDetailsOpen(false);
   }
 
@@ -81,7 +60,7 @@ const ItemDetailsModal = () => {
     const prevIndex = (currentIndex - 1 + data.length) % data.length;
     setSelectedItem(data[prevIndex]);
     setPosition({ x: 0, y: 0 });
-    setImageZoom(0.5);
+    setImageZoom(1);
   }
 
   // Navegar a la imagen siguiente
@@ -91,13 +70,13 @@ const ItemDetailsModal = () => {
     const nextIndex = (currentIndex + 1) % data.length;
     setSelectedItem(data[nextIndex]);
     setPosition({ x: 0, y: 0 });
-    setImageZoom(0.5);
+    setImageZoom(1);
   }
 
-  // Cuando el zoom es x1 que la imagen se ponga nuevamente en el centro
+  // Cuando las dimensiones de la imagen son menores que su contenedor que se ponga nuevamente en el centro
   useEffect(() => {
-    if (imageZoom <= 0.75) setPosition({ x: 0, y: 0 });
-  }, [imageZoom, setPosition]);
+    if (!isDraggable) setPosition({ x: 0, y: 0 });
+  }, [imageZoom, setPosition, isDraggable]);
 
   // Cuando cambia el ancho del documento y están desplegados los detalles
   useEffect(() => {
@@ -115,6 +94,29 @@ const ItemDetailsModal = () => {
     // Limpiar listener al desmontar
     return () => window.removeEventListener('resize', handleResize);
   }, [isDetailsOpen]);
+
+  // Validar arrastrabilidad
+  useEffect(() => {
+    // Calcular si la imagen es arrastrable basado en dimensiones
+    const calculateDraggable = () => {
+      if (!imageRef.current || !containerRef.current) return;
+
+      const img = imageRef.current;
+      const container = containerRef.current;
+
+      const imgWidth = img.width * imageZoom;
+      const imgHeight = img.height * imageZoom;
+      const containerWidth = container.clientWidth;
+      const containerHeight = container.clientHeight;
+
+      // Es arrastrable si alguna dimensión de la imagen es mayor que el contenedor
+      const draggable = imgWidth > containerWidth || imgHeight > containerHeight;
+      console.log(draggable);
+      setIsDraggable(draggable);
+    };
+
+    calculateDraggable();
+  }, [imageZoom, selectedItem]);
 
   if (!selectedItem) return null;
 
@@ -148,8 +150,8 @@ const ItemDetailsModal = () => {
               </svg>
               <input
                 type="range"
-                min={0.50}
-                max={1.50}
+                min={1}
+                max={2}
                 step={0.01}
                 value={imageZoom}
                 onChange={handleZoomChange}
@@ -205,19 +207,11 @@ const ItemDetailsModal = () => {
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
-            className="hidden md:flex transition-transform duration-300 ease-in-out"
+            className="md:w-auto md:h-auto portrait:w-4/5 portrait:h-auto landscape:h-4/5 landscape:w-auto"
             style={{
-              transform: `scale(${imageZoom}) translate(${position.x}px, ${position.y}px)`,
-              cursor: imageZoom > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default',
-              transition: isDragging ? 'none' : 'transform 0.3s ease'
-            }}
-          />
-          <img
-            src={selectedItem.imageUrl}
-            alt={`${selectedItem.name}, ${selectedItem.year}`}
-            className={`md:hidden flex portrait:w-4/5 portrait:h-auto landscape:h-4/5 landscape:w-auto transition-transform duration-300 ease-in ${isDetailsOpen ? "scale-0" : "scale-100"}`}
-            style={{
-              transform: `scale(${0.5 + imageZoom}) translate(${position.x}px, ${position.y}px)`
+              transform: `scale(${isDetailsOpen ? 0 : imageZoom}) translate(${position.x}px, ${position.y}px)`,
+              cursor: isDraggable ? (isDragging ? 'grabbing' : 'grab') : 'default',
+              transition: !isDragging ? 'transform 0.3s ease' : "none"
             }}
           />
         </div>
