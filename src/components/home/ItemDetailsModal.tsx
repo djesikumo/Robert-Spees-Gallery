@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, type ChangeEvent, type MouseEvent } from "react";
+import { useState, useRef, useEffect, type ChangeEvent, type MouseEvent, type TouchEvent } from "react";
 import { useApp } from "../../utils/hooks";
 import { data } from "../../data";
 
@@ -29,8 +29,27 @@ const ItemDetailsModal = () => {
     setStartPos({ x: e.clientX - position.x, y: e.clientY - position.y });
   }
 
+  // Evento de pulsar el táctil del móvil
+  const handleTouchStart = (e: TouchEvent) => {
+    e.preventDefault();
+    if (!isDraggable) return;
+
+    if (e.touches.length === 1) {
+      setIsDragging(true);
+      setStartPos({
+        x: e.touches[0].clientX - position.x,
+        y: e.touches[0].clientY - position.y,
+      });
+    }
+  }
+
   // Evento de liberar el click
   const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  // Evento de liberar el táctil del móvil
+  const handleTouchEnd = () => {
     setIsDragging(false);
   };
 
@@ -44,6 +63,18 @@ const ItemDetailsModal = () => {
       y: e.clientY - startPos.y,
     });
   }
+
+  const handleTouchMove = (e: TouchEvent<HTMLImageElement>) => {
+    e.preventDefault();
+    if (!isDragging || !isDraggable) return;
+
+    if (e.touches.length === 1) {
+      setPosition({
+        x: e.touches[0].clientX - startPos.x,
+        y: e.touches[0].clientY - startPos.y,
+      });
+    }
+  };
 
   // Evento de cerrar el modal
   const handleCloseModal = () => {
@@ -207,6 +238,9 @@ const ItemDetailsModal = () => {
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
             className="md:w-auto md:h-auto portrait:w-4/5 portrait:h-auto landscape:h-4/5 landscape:w-auto"
             style={{
               transform: `scale(${isDetailsOpen ? 0 : imageZoom}) translate(${position.x}px, ${position.y}px)`,
