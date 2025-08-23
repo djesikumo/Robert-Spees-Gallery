@@ -1,7 +1,6 @@
 import { useApp } from "../utils/hooks"
 import GalerySection from "../components/home/GalerySection"
 import ItemDetailsModal from "../components/home/ItemDetailsModal"
-import { data } from "../data"
 
 const HomePage = () => {
   const { selectedItem } = useApp();
@@ -14,14 +13,14 @@ const HomePage = () => {
       >
         {/* Descripción */}
         <section className="text-center">
-          <h2 className="gallery-title text-4xl font-bold mb-4 font-selectric">Selected Pieces</h2>
+          <h2 className="gallery-title text-4xl font-bold mb-4 font-selectric text-gray-800">Selected Pieces</h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
             Please click on any image for more information and/or to zoom in for greater detail.
           </p>
         </section>
 
         {/* Sección de la galería */}
-        <GalerySection items={data} />
+        <GalerySection adminMode={false} />
       </main>
 
       {/* Modal de los detalles de la obra seleccionada */}

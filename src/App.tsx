@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import VideosFilmsPage from "./pages/VideosFilmsPage";
 import CvPage from "./pages/CvPage";
 import BiographyPage from "./pages/BiographyPage";
+import AdminPage from "./pages/AdminPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <Route path="/videos-films" element={<VideosFilmsPage />} />
               <Route path="/cv" element={<CvPage />} />
               <Route path="/biography" element={<BiographyPage />} />
+              <Route path="/admin" element={<AdminPage />} />
             </Routes>
           </div>
         </Router>

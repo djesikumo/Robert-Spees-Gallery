@@ -9,6 +9,8 @@ export interface Position {
 export interface ApplicationContextType {
   currentRoute: string;
   setCurrentRoute: (route: SetStateAction<string>) => void;
+  artworks: GaleryItem[];
+  setArtworks: (artworks: SetStateAction<GaleryItem[]>) => void;
   selectedItem: GaleryItem | null;
   setSelectedItem: (item: SetStateAction<GaleryItem | null>) => void;
   imageZoom: number;
