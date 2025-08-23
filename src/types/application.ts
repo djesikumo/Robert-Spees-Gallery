@@ -1,5 +1,6 @@
 import type { SetStateAction } from "react";
 import type { GaleryItem } from "./galery";
+import type { CV } from "./cv";
 
 export interface Position {
   x: number;
@@ -17,4 +18,6 @@ export interface ApplicationContextType {
   setImageZoom: (zoom: SetStateAction<number>) => void;
   position: Position;
   setPosition: (position: SetStateAction<Position>) => void;
+  cv: CV;
+  setCv: (cv: SetStateAction<CV>) => void;
 }

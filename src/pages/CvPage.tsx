@@ -2,15 +2,13 @@
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <section className="mb-8">
-    <h2 className="text-2xl font-bold mb-2 text-gray-800">{title}</h2>
+    <h2 className="text-2xl font-bold mb-2 text-gray-800 font-selectric">{title}</h2>
     <div className="space-y-1">{children}</div>
   </section>
 )
 
 const Education = ({ text }: { text: string }) => (
-  <div className="flex items-start">
-    <p className="text-gray-700">{`• ${text}`}</p>
-  </div>
+  <p className="text-gray-700">{`• ${text}`}</p>
 )
 
 const Exhibitions = ({ year, children }: { year: string; children: React.ReactNode }) => (
@@ -74,7 +72,6 @@ const CvPage = () => {
               <p>@rbtsps</p>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -107,7 +104,7 @@ const CvPage = () => {
           <p>Zootonic Hex, Field Projects, New York, New York, USA</p>
         </Exhibitions>
         <Exhibitions year="2020">
-          <p className="mb-2">Experimental film workshop instructor/volunteer, Colegio Universitario San Gerónimo, Havana, Cuba (canceled due to Covid-19)</p>
+          <p>Experimental film workshop instructor/volunteer, Colegio Universitario San Gerónimo, Havana, Cuba (canceled due to Covid-19)</p>
         </Exhibitions>
         <Exhibitions year="2019">
           <p>Lecturer, Spalding University Film Festival, Louisville, Kentucky, USA</p>

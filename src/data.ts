@@ -1,4 +1,5 @@
 import type { GaleryItem } from "./types/galery"
+import type { CV } from "./types/cv"
 import url_16th_quilt from "./assets/Selected Works/16th_quilt_2020-webp.png"
 import url_207_apartment_2_2021 from "./assets/Selected Works/207_apartment_2_2021-webp.png"
 import url_annmarie_quilt_2019 from "./assets/Selected Works/annmarie_quilt_2019-webp.png"
@@ -209,3 +210,177 @@ export const data: GaleryItem[] = [
     dimensions: "44x44 in (112x112 cm)"
   }
 ]
+
+export const cvData: CV = {
+  education: [
+    {
+      id: "1",
+      education: "Bestowed a Kentucky Colonel"
+    },
+    {
+      id: "2",
+      education: "Foundation for Contemporary Arts emergency grantee"
+    },
+    {
+      id: "3",
+      education: "BFA, Studio Art, Emphasis in Printmaking, Murray State University"
+    },
+    {
+      id: "4",
+      education: "Kentucky Governor’s School for the Arts Participant"
+    }
+  ],
+  exhibitions: [
+    {
+      id: "1",
+      year: 2025,
+      exhibition: "The Country This Shape is In: Works in Analog and (Early) Digital by Rbt. Sps., Shadow Kitchen in conjunction with Coaxial Arts, Los Angeles, California, USA"
+    },
+    {
+      id: "2",
+      year: 2025,
+      exhibition: "The Country This Shape is In: Works in Analog and (Early) Digital by Rbt. Sps., Subsequence, Tbilisi, Georgia"
+    },
+    {
+      id: "3",
+      year: 2024,
+      exhibition: "Apple Express: A Film by Rbt. Sps., Subsequence, Tbilisi, Georgia"
+    },
+    {
+      id: "4",
+      year: 2024,
+      exhibition: "32BJ Art Show: Embracing Planet Earth, The High Line, New York, New York, USA"
+    },
+    {
+      id: "5",
+      year: 2023,
+      exhibition: "16th Annual 32BJ Art Show, New York, New York, USA"
+    },
+    {
+      id: "6",
+      year: 2023,
+      exhibition: "Middle of Knowhere Film Festival, Fayetteville Arkansas, USA"
+    },
+    {
+      id: "7",
+      year: 2023,
+      exhibition: "Film screening: Confederitis, Cinema House, Tbilisi, Georgia"
+    },
+    {
+      id: "8",
+      year: 2022,
+      exhibition: "Film screening: Confederitis, Cinema House, Tbilisi, Georgia"
+    },
+    {
+      id: "9",
+      year: 2021,
+      exhibition: "Zootonic Hex, Field Projects, New York, New York, USA"
+    },
+    {
+      id: "10",
+      year: 2020,
+      exhibition: "Experimental film workshop instructor/volunteer, Colegio Universitario San Gerónimo, Havana, Cuba (canceled due to Covid-19)"
+    },
+    {
+      id: "11",
+      year: 2019,
+      exhibition: "Lecturer, Spalding University Film Festival, Louisville, Kentucky, USA"
+    },
+    {
+      id: "12",
+      year: 2019,
+      exhibition: "Extended Family, Darby Forever Gallery, Louisville, Kentucky, USA"
+    },
+    {
+      id: "13",
+      year: 2019,
+      exhibition: "Film screening: Confederitis, Circe Platform, Tbilisi, Georgia"
+    },
+    {
+      id: "14",
+      year: 2018,
+      exhibition: "Confederitis: A film by Rbt. Sps. and Jillian McManemin, Official selection, Istanbul International Experimental Film Festival"
+    },
+    {
+      id: "14",
+      year: 2017,
+      exhibition: "Semionauts: three exercises in collaborative essay filmmaking, King’s Leap, Brooklyn, New York, USA"
+    },
+    {
+      id: "15",
+      year: 2013,
+      exhibition: "Apple Express: A Film by Rbt. Sps., Interstate Projects, Brooklyn, New York, USA"
+    },
+    {
+      id: "16",
+      year: 2013,
+      exhibition: "Jillian McManemin and Rbt. Sps.: An Evening of Recitation and Song, BGSQD, New York, New York, USA"
+    },
+    {
+      id: "17",
+      year: 2013,
+      exhibition: "Moving Image Contemporary Video Art Fair, New York Waterfront Tunnel, New York, New York, USA"
+    },
+    {
+      id: "18",
+      year: 2011,
+      exhibition: "Magic For Beginners, PPOW,  New York, New York, USA"
+    },
+    {
+      id: "19",
+      year: 2008,
+      exhibition: "Vienna Biennale 2008, Ve.Sch Galerie, Vienna, Austria"
+    }
+  ],
+  press: [
+    {
+      id: "1",
+      author: "Gabrichidze, Manana",
+      title: "What The American Director Found Wonderful",
+      publication: "GZA Magazine Tbilisi",
+      date: "21 November 2024",
+    },
+    {
+      id: "2",
+      author: "Ryder, Gina",
+      title: "The Art of Being a Super Begins at Dawn",
+      publication: "The New York Times",
+      date: "29 November 2023"
+    },
+    {
+      id: "3",
+      author: "Hieges, Nate, host",
+      title: "The Selection Committee",
+      publication: "Newtown Radio",
+      date: "17 April 2022"
+    },
+    {
+      id: "4",
+      author: "Clarke, Erin, host",
+      title: "Mornings on 1",
+      publication: "Time Warner Cable News NY1, New York City",
+      date: "24 January 2016"
+    },
+    {
+      id: "5",
+      author: "Lingan, John",
+      title: "Clear Victory: A Deep Dive Into The World’s Most Prestigious Water-Tasting Competition",
+      publication: "Buzzfeed",
+      date: "18 June 2015"
+    },
+    {
+      id: "6",
+      author: "Johnson, Ken",
+      title: "Magic For Beginners",
+      publication: "The New York Times",
+      date: "11 August 2011"
+    },
+    {
+      id: "7",
+      author: "O’Reilly, Bill, host",
+      title: "The O’Reilly Factor",
+      publication: "Fox News",
+      date: "15 May 2006"
+    }
+  ]
+}
