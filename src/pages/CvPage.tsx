@@ -50,13 +50,13 @@ const CvPage = () => {
       </section>
 
       {/* Sección de educación */}
-      <EducationSection education={cv.education} />
+      <EducationSection education={cv.education} adminMode={false} />
 
       {/* Sección de exhibiciones */}
-      <ExhibitionsSection exhibitions={cv.exhibitions} />
+      <ExhibitionsSection exhibitions={cv.exhibitions} adminMode={false} />
 
       {/* Sección de prensa, televisión y radio */}
-      <PressSection press={cv.press} />
+      <PressSection press={cv.press} adminMode={false} />
     </main>
   )
 }

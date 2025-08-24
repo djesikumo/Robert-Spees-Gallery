@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useApp } from "../utils/hooks";
 import GalerySection from "../components/home/GalerySection";
+import { EducationSection, ExhibitionsSection, PressSection } from "../components/cv/CvSections";
 
 const AdminPage = () => {
+  const { cv } = useApp();
   const [activeTab, setActiveTab] = useState<"artworks" | "cv">("artworks");
 
   return (
@@ -28,7 +31,11 @@ const AdminPage = () => {
       {activeTab === "artworks" ? (
         <GalerySection adminMode={true} />
       ) : (
-        <section>Sección de administración del cv</section>
+        <>
+          <EducationSection education={cv.education} adminMode={true} />
+          <ExhibitionsSection exhibitions={cv.exhibitions} adminMode={true} />
+          <PressSection press={cv.press} adminMode={true} />
+        </>
       )}
     </main>
   )
