@@ -1,15 +1,15 @@
-interface Education {
+export interface Education {
   id: string;
   education: string;
 }
 
-interface Exhibition {
+export interface Exhibition {
   id: string;
   year: number;
   exhibition: string;
 }
 
-interface Press {
+export interface Press {
   id: string;
   author: string;
   title: string;
