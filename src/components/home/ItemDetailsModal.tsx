@@ -80,7 +80,7 @@ const ItemDetailsModal = () => {
   const handleCloseModal = () => {
     setSelectedItem(null);
     setPosition({ x: 0, y: 0 });
-    setImageZoom(1);
+    setImageZoom(0.8);
     setIsDetailsOpen(false);
   }
 
@@ -91,7 +91,7 @@ const ItemDetailsModal = () => {
     const prevIndex = (currentIndex - 1 + data.length) % data.length;
     setSelectedItem(data[prevIndex]);
     setPosition({ x: 0, y: 0 });
-    setImageZoom(1);
+    setImageZoom(0.8);
   }
 
   // Navegar a la imagen siguiente
@@ -101,7 +101,7 @@ const ItemDetailsModal = () => {
     const nextIndex = (currentIndex + 1) % data.length;
     setSelectedItem(data[nextIndex]);
     setPosition({ x: 0, y: 0 });
-    setImageZoom(1);
+    setImageZoom(0.8);
   }
 
   // Cuando las dimensiones de la imagen son menores que su contenedor que se ponga nuevamente en el centro
@@ -181,7 +181,7 @@ const ItemDetailsModal = () => {
               </svg>
               <input
                 type="range"
-                min={1}
+                min={0.8}
                 max={2}
                 step={0.01}
                 value={imageZoom}
@@ -265,13 +265,13 @@ const ItemDetailsModal = () => {
 
         {/* Dialog de los detalles del artwork */}
         <div className={`absolute flex flex-col md:hidden items-center justify-center p-2 w-full h-full z-20 transition-transform duration-500 ease-in ${isDetailsOpen ? "translate-y-0" : "translate-y-full"}`}>
-          <p className="text-center italic">{selectedItem.name}</p>
+          <p className="text-center italic">{selectedItem.name}, <span className="not-italic">{selectedItem.year}</span></p>
           <p className="text-center">{selectedItem.technique}</p>
           <p className="text-center">{selectedItem.dimensions}</p>
           {selectedItem.description && <p className="text-center">{selectedItem.description}</p>}
         </div>
         <div className="absolute md:flex md:flex-col hidden items-center justify-center py-2 bottom-0 w-7/8 h-auto text-white">
-          <p className="text-center italic">{selectedItem.name}</p>
+          <p className="text-center italic">{selectedItem.name}, <span className="not-italic">{selectedItem.year}</span></p>
           <p className="text-center">{selectedItem.technique}</p>
           <p className="text-center">{selectedItem.dimensions}</p>
           {selectedItem.description && <p className="text-center">{selectedItem.description}</p>}

@@ -14,7 +14,7 @@ export const ApplicationProvider: React.FC<NavigationProviderProps> = ({ childre
   const [currentRoute, setCurrentRoute] = useState<string>("/");
   const [artworks, setArtworks] = useState<GaleryItem[]>(data);
   const [selectedItem, setSelectedItem] = useState<GaleryItem | null>(null);
-  const [imageZoom, setImageZoom] = useState<number>(1);
+  const [imageZoom, setImageZoom] = useState<number>(0.8);
   const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
   const [cv, setCv] = useState<CV>(cvData);
 
