@@ -27,9 +27,9 @@ const CvPage = () => {
                   </path>
                 </g>
               </svg>
-              <p>rbtsps@gmail.com</p>
+              <span>rbtsps@gmail.com</span>
             </div>
-            <div className="flex items-center space-x-1">
+            <a className="flex items-center space-x-1" href="https://instagram.com/rbtsps" target="_blank">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <circle cx="17" cy="7" r="1.5" fill="currentColor" fillOpacity="0">
                   <animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.15s" values="0;1" />
@@ -43,8 +43,8 @@ const CvPage = () => {
                   </path>
                 </g>
               </svg>
-              <p>@rbtsps</p>
-            </div>
+              <span>@rbtsps</span>
+            </a>
           </div>
         </div>
       </section>

@@ -9,11 +9,11 @@ const BiographyPage = () => {
         <p className="w-96 text-gray-500 italic text-center">The artist at 20 years old in 2005 shooting his seminal experimental documentary, Apple Express (photo credit: Katherine Duckworth)</p>
       </div>
 
-      <div className="flex flex-col items-center space-y-2 text-2xl">
-        <p className="text-center">Rbt. Sps. is an experimental filmmaker and visual artist who lives and works in NYC. The Kentucky native made his international art debut at the 2008 Vienna Biennale and has since shown work in Paris, Tbilisi, Los Angeles, Istanbul, Chicago, Nashville, Santiago, Cuba, and many other places.</p>
-        <p className="text-center">Sps. is an enthusiast of antiquated technology. Highlights in his collection include a 1987 Fisher-Price Pixelvsion, a fully functioning 1969 Sony Portapak, and a 1970s Groma Kolibri typewriter in the Georgian alphabet.</p>
-        <p className="text-center">A super fan of heavily peated whiskies, Sps. made a liquor pilgrimage to Islay, Scotland in 2023.</p>
-        <p className="text-center">The artist was bestowed a Kentucky Colonel in 2020.</p>
+      <div className="flex flex-col space-y-8 text-2xl">
+        <p>Rbt. Sps. is an experimental filmmaker and visual artist who lives and works in NYC. The Kentucky native made his international art debut at the 2008 Vienna Biennale and has since shown work in Paris, Tbilisi, Los Angeles, Istanbul, Chicago, Nashville, Santiago (Cuba), and many other places.</p>
+        <p>Sps. is an enthusiast of antiquated technology. Highlights in his collection include a 1987 Fisher-Price Pixelvsion, a fully functioning 1969 Sony Portapak, and a 1970s Groma Kolibri typewriter in the Georgian alphabet.</p>
+        <p>A super fan of heavily peated whiskies, Sps. made a liquor pilgrimage to Islay, Scotland in 2023.</p>
+        <p>The artist was bestowed a Kentucky Colonel in 2020.</p>
       </div>
     </main>
   )

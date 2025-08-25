@@ -95,7 +95,7 @@ export const ExhibitionsSection = ({ exhibitions, adminMode }: ExhibitionsSectio
             <div className="space-y-1 pl-4 text-gray-700">
               {exhibitions.map(exhibition => (
                 <div key={exhibition.id} className="flex items-center justify-between space-x-2 sm:space-x-0">
-                  <p>{exhibition.exhibition}</p>
+                  <p>{`• ${exhibition.exhibition}`}</p>
 
                   {/* Acciones (solo disponibles desde el modo admin) */}
                   {adminMode && (
@@ -152,7 +152,7 @@ export const PressSection = ({ press, adminMode }: PressSectionProps) => (
     {press.map((item) => (
       <div key={item.id} className="flex items-center justify-between space-x-2 sm:space-x-0">
         <div key={item.id} className="mb-2">
-          <p className="font-medium text-gray-700">{item.author}</p>
+          <p className="font-medium text-gray-700">{`• ${item.author}`}</p>
           <p className="text-gray-700">“{item.title}”, <span className="italic">{item.publication}</span>, {item.date}</p>
         </div>
 

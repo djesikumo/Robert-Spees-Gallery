@@ -265,13 +265,13 @@ const ItemDetailsModal = () => {
 
         {/* Dialog de los detalles del artwork */}
         <div className={`absolute flex flex-col md:hidden items-center justify-center p-2 w-full h-full z-20 transition-transform duration-500 ease-in ${isDetailsOpen ? "translate-y-0" : "translate-y-full"}`}>
-          <p className="text-center italic">{`${selectedItem.name}, ${selectedItem.year}`}</p>
+          <p className="text-center italic">{selectedItem.name}</p>
           <p className="text-center">{selectedItem.technique}</p>
           <p className="text-center">{selectedItem.dimensions}</p>
           {selectedItem.description && <p className="text-center">{selectedItem.description}</p>}
         </div>
         <div className="absolute md:flex md:flex-col hidden items-center justify-center py-2 bottom-0 w-7/8 h-auto text-white">
-          <p className="text-center italic">{`${selectedItem.name}, ${selectedItem.year}`}</p>
+          <p className="text-center italic">{selectedItem.name}</p>
           <p className="text-center">{selectedItem.technique}</p>
           <p className="text-center">{selectedItem.dimensions}</p>
           {selectedItem.description && <p className="text-center">{selectedItem.description}</p>}
