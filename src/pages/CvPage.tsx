@@ -16,7 +16,7 @@ const CvPage = () => {
         </div>
         <div className="flex flex-col flex-1 text-gray-700 items-center">
           <div className="flex flex-col space-y-1 items-center sm:items-start">
-            <div className="flex items-center space-x-1">
+            <a className="flex items-center space-x-1" href="mailto:rbtsps@gmail.com">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
                   <path strokeDasharray="64" strokeDashoffset="64" d="M4 5h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z">
@@ -28,7 +28,7 @@ const CvPage = () => {
                 </g>
               </svg>
               <span>rbtsps@gmail.com</span>
-            </div>
+            </a>
             <a className="flex items-center space-x-1" href="https://instagram.com/rbtsps" target="_blank">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <circle cx="17" cy="7" r="1.5" fill="currentColor" fillOpacity="0">
