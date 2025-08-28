@@ -23,6 +23,7 @@ import url_to_cooter_brown_2024 from "./assets/Selected Works/to_cooter_brown_20
 import url_to_florine_mckenney_2022 from "./assets/Selected Works/to_florine_mckenney_2022-webp.png"
 import url_tom_daley_2022 from "./assets/Selected Works/tom_daley_2022-webp.png"
 import url_Wickliffe_Quilt from "./assets/Selected Works/Wickliffe Quilt Almost to Cairo 2023-webp.png"
+import url_Whitlock_Quilt_2008 from "./assets/Selected Works/Whitlock_Quilt_2008.jpg"
 
 export const data: GaleryItem[] = [
   {
@@ -206,8 +207,16 @@ export const data: GaleryItem[] = [
     imageUrl: url_Wickliffe_Quilt,
     name: "Wickliffe Quilt (Almost to Cairo)",
     year: "2023",
-    technique: "Silkscreen, smart plate, lithography, etching, drawing transfer, monotype, ink, micron pen, graphite, colored pencil, acrylic, casein, and gouache on printmaking paper and cold press watercolor paper with pastel paper, stippled aluminum flashing, PVC, transparency sheets, laser jet prints on transparency sheets, inkjet photo prints, mylar, and embroidery thread. ",
+    technique: "Silkscreen, smart plate, lithography, etching, drawing transfer, monotype, ink, micron pen, graphite, colored pencil, acrylic, casein, and gouache on printmaking paper and cold press watercolor paper with pastel paper, stippled aluminum flashing, PVC, transparency sheets, laser jet prints on transparency sheets, inkjet photo prints, mylar, and embroidery thread.",
     dimensions: "44x44 in (112x112 cm)"
+  },
+  {
+    id: 24,
+    imageUrl: url_Whitlock_Quilt_2008,
+    name: "Whitlock Quilt",
+    year: "2008",
+    technique: "Silkscreen, lithography, photolithography, and chine colle on printmaking paper with stippled aluminum flashing, inkjet prints on transparency sheets, embroidery thread, and bookbinding thread.",
+    dimensions: "45x45 in (114.3x114.3 cm), edition of 2"
   }
 ]
 
