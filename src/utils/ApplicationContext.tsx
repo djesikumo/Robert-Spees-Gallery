@@ -1,6 +1,6 @@
-import { useState, type ReactNode } from "react";
-import { ApplicationContext } from "./hooks";
-import type { ApplicationContextType, Position } from "../types/application";
+import { useState, useEffect, type ReactNode } from "react";
+import { ApplicationContext, AuthContext } from "./hooks";
+import type { ApplicationContextType, Position, AuthContextType, AuthUser } from "../types/application";
 import type { GaleryItem } from "../types/galery";
 import type { CV } from "../types/cv";
 import { data } from "../data";
@@ -31,5 +31,38 @@ export const ApplicationProvider: React.FC<NavigationProviderProps> = ({ childre
     <ApplicationContext.Provider value={value}>
       {children}
     </ApplicationContext.Provider>
+  );
+}
+
+interface AuthProviderProps {
+  children: ReactNode;
+}
+
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+  const [authUser, setAuthUser] = useState<AuthUser | null>(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("authUser");
+    if (storedUser) {
+      try {
+        const parsedUser: AuthUser = JSON.parse(storedUser);
+        if (parsedUser) {
+          setAuthUser(parsedUser);
+        }
+      } catch (error) {
+        console.error("Error parsing authUser from localStorage", error);
+        localStorage.removeItem("authUser");
+      }
+    }
+  }, []);
+
+  const value: AuthContextType = {
+    authUser, setAuthUser
+  };
+
+  return (
+    <AuthContext.Provider value={value}>
+      {children}
+    </AuthContext.Provider>
   );
 }

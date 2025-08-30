@@ -21,3 +21,21 @@ export interface ApplicationContextType {
   cv: CV;
   setCv: (cv: SetStateAction<CV>) => void;
 }
+
+// Tipado del esquema del body de la solicitud de autenticación
+export interface AuthRequestBody {
+  username: string,
+  password: string;
+}
+
+// Tipado del esquema del response del usuario autenticado
+export interface AuthUser {
+  username: string;
+  token: string;
+}
+
+// Tipado para el contexto de autenticación
+export interface AuthContextType {
+  authUser: AuthUser | null;
+  setAuthUser: (user: SetStateAction<AuthUser | null>) => void;
+}
