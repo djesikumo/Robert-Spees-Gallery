@@ -24,6 +24,7 @@ import url_to_florine_mckenney_2022 from "./assets/Selected Works/to_florine_mck
 import url_tom_daley_2022 from "./assets/Selected Works/tom_daley_2022-webp.png"
 import url_Wickliffe_Quilt from "./assets/Selected Works/Wickliffe Quilt Almost to Cairo 2023-webp.png"
 import url_Whitlock_Quilt_2008 from "./assets/Selected Works/Whitlock_Quilt_2008.jpg"
+import url_Halloween_Shave_2025 from "./assets/Selected Works/Halloween_Shave_2025.webp"
 
 export const data: GaleryItem[] = [
   {
@@ -217,6 +218,14 @@ export const data: GaleryItem[] = [
     year: "2008",
     technique: "Silkscreen, lithography, photolithography, and chine colle on printmaking paper with stippled aluminum flashing, inkjet prints on transparency sheets, embroidery thread, and bookbinding thread.",
     dimensions: "45x45 in (114.3x114.3 cm), edition of 2"
+  },
+  {
+    id: 25,
+    imageUrl: url_Halloween_Shave_2025,
+    name: "Halloween Shave",
+    year: "2025",
+    technique: "Printmaking paper, pastel paper, mylar, colored transparency sheets, and decorative paper with embroidery thread.",
+    dimensions: "40x40 in. (101x101 cm.)"
   }
 ]
 
@@ -242,38 +251,38 @@ export const cvData: CV = {
   exhibitions: [
     {
       id: "1",
-      year: 2025,
-      exhibition: "The Country This Shape is In: Works in Analog and (Early) Digital by Rbt. Sps., Shadow Kitchen in conjunction with Coaxial Arts, Los Angeles, California, USA"
+      year: 2026,
+      exhibition: "20th Annual 32BJ Art Show, New York, New York, USA"
     },
     {
       id: "2",
       year: 2025,
-      exhibition: "The Country This Shape is In: Works in Analog and (Early) Digital by Rbt. Sps., Subsequence, Tbilisi, Georgia"
+      exhibition: "The Country This Shape is In: Works in Analog and (Early) Digital by Rbt. Sps., Shadow Kitchen in conjunction with Coaxial Arts, Los Angeles, California, USA"
     },
     {
       id: "3",
-      year: 2024,
-      exhibition: "Apple Express: A Film by Rbt. Sps., Subsequence, Tbilisi, Georgia"
+      year: 2025,
+      exhibition: "The Country This Shape is In: Works in Analog and (Early) Digital by Rbt. Sps., Subsequence, Tbilisi, Georgia"
     },
     {
       id: "4",
       year: 2024,
-      exhibition: "32BJ Art Show: Embracing Planet Earth, The High Line, New York, New York, USA"
+      exhibition: "Apple Express: A Film by Rbt. Sps., Subsequence, Tbilisi, Georgia"
     },
     {
       id: "5",
-      year: 2023,
-      exhibition: "16th Annual 32BJ Art Show, New York, New York, USA"
+      year: 2024,
+      exhibition: "32BJ Art Show: Embracing Planet Earth, The High Line, New York, New York, USA"
     },
     {
       id: "6",
       year: 2023,
-      exhibition: "Middle of Knowhere Film Festival, Fayetteville Arkansas, USA"
+      exhibition: "16th Annual 32BJ Art Show, New York, New York, USA"
     },
     {
       id: "7",
       year: 2023,
-      exhibition: "Film screening: Confederitis, Cinema House, Tbilisi, Georgia"
+      exhibition: "Middle of Knowhere Film Festival, Fayetteville Arkansas, USA"
     },
     {
       id: "8",
@@ -311,32 +320,37 @@ export const cvData: CV = {
       exhibition: "Confederitis: A film by Rbt. Sps. and Jillian McManemin, Official selection, Istanbul International Experimental Film Festival"
     },
     {
-      id: "14",
+      id: "15",
       year: 2017,
       exhibition: "Semionauts: three exercises in collaborative essay filmmaking, King’s Leap, Brooklyn, New York, USA"
     },
     {
-      id: "15",
+      id: "16",
       year: 2013,
       exhibition: "Apple Express: A Film by Rbt. Sps., Interstate Projects, Brooklyn, New York, USA"
     },
     {
-      id: "16",
+      id: "17",
       year: 2013,
       exhibition: "Jillian McManemin and Rbt. Sps.: An Evening of Recitation and Song, BGSQD, New York, New York, USA"
     },
     {
-      id: "17",
+      id: "18",
       year: 2013,
       exhibition: "Moving Image Contemporary Video Art Fair, New York Waterfront Tunnel, New York, New York, USA"
     },
     {
-      id: "18",
+      id: "19",
       year: 2011,
       exhibition: "Magic For Beginners, PPOW,  New York, New York, USA"
     },
     {
-      id: "19",
+      id: "20",
+      year: 2009,
+      exhibition: "Harmony Korine: Pigxote, videographer, Vanderbilt University, Nashville, Tennessee, USA"
+    },
+    {
+      id: "21",
       year: 2008,
       exhibition: "Vienna Biennale 2008, Ve.Sch Galerie, Vienna, Austria"
     }
