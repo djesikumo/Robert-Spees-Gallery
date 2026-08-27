@@ -222,7 +222,7 @@ export const data: GaleryItem[] = [
   {
     id: 25,
     imageUrl: url_Halloween_Shave_2025,
-    name: "Halloween Shave (Holding onto The Way), 2025",
+    name: "Halloween Shave (Holding onto The Way)",
     year: "2025",
     technique: "Printmaking paper, pastel paper, mylar, colored transparency sheets, and decorative paper with embroidery thread.",
     dimensions: "40x40 in. (101x101 cm.)"
